@@ -13,11 +13,6 @@
                 extend: {
                     fontFamily: { sans: ['Inter', 'sans-serif'] },
                     colors: {
-                        brand: {
-                            50: '#fdf2f4', 100: '#fce7eb', 200: '#f9d0d9', 300: '#f4a9b8',
-                            400: '#ec7791', 500: '#df4d6e', 600: '#cc2952', 700: '#ab1e42',
-                            800: '#8f1d3b', 900: '#7a1b36', 950: '#430919',
-                        },
                         wine: '#722F37',
                         gold: '#C5A55A',
                     }
@@ -41,15 +36,14 @@
             0% { background-position: -200% center; }
             100% { background-position: 200% center; }
         }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(114, 47, 55, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(114, 47, 55, 0.6); }
+        }
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        @keyframes glowPulse {
-            0%, 100% { box-shadow: 0 0 15px rgba(114, 47, 55, 0.4), 0 0 30px rgba(114, 47, 55, 0.1); }
-            50% { box-shadow: 0 0 25px rgba(114, 47, 55, 0.7), 0 0 50px rgba(114, 47, 55, 0.2); }
-        }
-
         .animate-float { animation: float 6s ease-in-out infinite; }
         .animate-float-reverse { animation: floatReverse 7s ease-in-out infinite; }
         .animate-shimmer {
@@ -59,83 +53,41 @@
             -webkit-text-fill-color: transparent;
             animation: shimmer 3s linear infinite;
         }
+        .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
         .fade-in-up { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
-        .fade-in-up-delay-1 { animation-delay: 0.2s; }
-        .fade-in-up-delay-2 { animation-delay: 0.4s; }
-        .fade-in-up-delay-3 { animation-delay: 0.6s; }
+        .fade-in-up-d1 { animation-delay: 0.15s; }
+        .fade-in-up-d2 { animation-delay: 0.3s; }
+        .fade-in-up-d3 { animation-delay: 0.45s; }
 
         .glass-card {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: background 0.5s ease, border-color 0.5s ease;
+            transition: background 0.5s, border-color 0.5s;
         }
         .glass-card:hover {
             background: rgba(255, 255, 255, 0.06);
             border-color: rgba(197, 165, 90, 0.3);
         }
 
+        .static-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
         .price-badge {
             background: linear-gradient(135deg, #722F37 0%, #9B2335 50%, #722F37 100%);
-            box-shadow: 0 0 30px rgba(114, 47, 55, 0.5);
+            animation: pulse-glow 2s ease-in-out infinite;
         }
+
         .hero-gradient {
             background: radial-gradient(ellipse at 30% 20%, rgba(114, 47, 55, 0.15) 0%, transparent 50%),
                         radial-gradient(ellipse at 70% 80%, rgba(197, 165, 90, 0.08) 0%, transparent 50%);
         }
-        .grain-overlay {
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-        }
 
-        /* Botón de pago principal - estilos directos sin dependencias */
-        .btn-pago-tarjeta {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            background: #722F37;
-            color: #ffffff;
-            font-weight: 500;
-            font-size: 1rem;
-            padding: 1rem 2rem;
-            border-radius: 9999px;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            animation: glowPulse 2s ease-in-out infinite;
-        }
-        .btn-pago-tarjeta:hover {
-            background: #8a3842;
-            transform: translateY(-1px);
-        }
-        .btn-pago-tarjeta svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        .btn-pago-deposito {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            background: rgba(255,255,255,0.06);
-            color: #ffffff;
-            font-weight: 500;
-            font-size: 1rem;
-            padding: 1rem 2rem;
-            border-radius: 9999px;
-            border: 1px solid rgba(255,255,255,0.15);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .btn-pago-deposito:hover {
-            background: rgba(255,255,255,0.1);
-            border-color: rgba(255,255,255,0.25);
-        }
-        .btn-pago-deposito svg {
-            width: 20px;
-            height: 20px;
+        .grain {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
         }
 
         .copy-toast {
@@ -147,6 +99,7 @@
             transform: translateY(0);
             opacity: 1;
         }
+
         .modal-overlay {
             opacity: 0;
             pointer-events: none;
@@ -163,59 +116,38 @@
         .modal-overlay.active .modal-content {
             transform: scale(1) translateY(0);
         }
-        .whatsapp-green { background-color: #25D366 !important; }
-        .whatsapp-green:hover { background-color: #1ebe57 !important; }
+
+        .wa-green { background-color: #25D366; }
+        .wa-green:hover { background-color: #1ebe57; }
 
         .instructor-img {
             filter: grayscale(100%) contrast(1.1);
             transition: filter 0.7s ease;
         }
-        .instructor-img:hover {
-            filter: grayscale(0%) contrast(1);
+        .instructor-img:hover { filter: grayscale(0%) contrast(1); }
+
+        .poster-frame {
+            border: 1px solid rgba(197, 165, 90, 0.2);
+            box-shadow: 0 25px 60px -15px rgba(114, 47, 55, 0.3), 0 0 80px rgba(197, 165, 90, 0.05);
         }
 
-        /* Sección de pago - sin overflow hidden que pueda cortar botones */
-        .pago-section {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 1.5rem;
-            padding: 2rem;
+        .btn-pay {
             position: relative;
+            z-index: 10;
+            pointer-events: auto;
+            cursor: pointer;
         }
-        @media (min-width: 640px) {
-            .pago-section { padding: 3rem; }
-        }
-        .pago-section .deco-1 {
-            position: absolute;
-            top: 0; right: 0;
-            width: 10rem; height: 10rem;
-            background: rgba(197,165,90,0.05);
-            border-radius: 50%;
-            filter: blur(80px);
-            pointer-events: none;
-        }
-        .pago-section .deco-2 {
-            position: absolute;
-            bottom: 0; left: 0;
-            width: 8rem; height: 8rem;
-            background: rgba(114,47,55,0.1);
-            border-radius: 50%;
-            filter: blur(60px);
-            pointer-events: none;
-        }
+        .btn-pay:hover { transform: translateY(-1px); }
+        .btn-pay:active { transform: translateY(0); }
     </style>
 </head>
 <body class="bg-[#050505] text-white antialiased overflow-x-hidden">
 
-    <!-- Grain Overlay -->
-    <div class="grain-overlay fixed inset-0 pointer-events-none z-50"></div>
-
-    <!-- Floating Decorative -->
+    <div class="grain fixed inset-0 pointer-events-none z-50"></div>
     <div class="fixed top-20 left-10 w-72 h-72 bg-wine/10 rounded-full blur-[120px] animate-float pointer-events-none"></div>
     <div class="fixed bottom-20 right-10 w-96 h-96 bg-gold/5 rounded-full blur-[120px] animate-float-reverse pointer-events-none"></div>
 
-    <!-- Navigation -->
+    <!-- NAV -->
     <nav class="fixed top-0 left-0 right-0 z-40 bg-[#050505]/80 backdrop-blur-md border-b border-white/5">
         <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
             <div class="flex items-center gap-3">
@@ -224,140 +156,136 @@
                 </div>
                 <span class="font-semibold tracking-tight">José Guerrero</span>
             </div>
-            <a href="#comprar" style="background:#722F37; color:#fff;" class="text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-300 hover:opacity-90">
+            <a href="#comprar" class="bg-wine hover:bg-wine/80 text-white text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-300 btn-pay">
                 Comprar Ahora
             </a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- HERO -->
     <section class="relative min-h-screen flex items-center justify-center hero-gradient pt-16">
-        <div class="max-w-7xl mx-auto px-6 py-24 text-center">
-            <div class="fade-in-up inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-8" style="background:rgba(114,47,55,0.2); border:1px solid rgba(114,47,55,0.3);">
-                <span class="w-2 h-2 rounded-full animate-pulse" style="background:#C5A55A;"></span>
-                <span class="text-xs font-medium tracking-wider uppercase" style="color:#C5A55A;">Promoción Especial</span>
+        <div class="max-w-7xl mx-auto px-6 py-20 text-center">
+            <div class="fade-in-up inline-flex items-center gap-2 bg-wine/20 border border-wine/30 rounded-full px-4 py-1.5 mb-8">
+                <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
+                <span class="text-xs font-medium tracking-wider uppercase text-gold">Promoción Especial</span>
             </div>
-
-            <h1 class="fade-in-up fade-in-up-delay-1 text-4xl sm:text-5xl md:text-7xl font-medium tracking-tight leading-[1.1] mb-6">
+            <h1 class="fade-in-up fade-in-up-d1 text-4xl sm:text-5xl md:text-7xl font-medium tracking-tight leading-[1.1] mb-6">
                 <span class="text-white">PROMOCIÓN DE</span><br>
                 <span class="animate-shimmer">CURSOS DE VINO</span>
             </h1>
-
-            <p class="fade-in-up fade-in-up-delay-2 text-lg sm:text-xl text-gray-400 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
+            <p class="fade-in-up fade-in-up-d2 text-lg sm:text-xl text-gray-400 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
                 Aprende, aplica y eleva tu pasión por el vino con tres cursos especializados diseñados para transformar tu conocimiento.
             </p>
-
-            <div class="fade-in-up fade-in-up-delay-3 mb-12">
+            <div class="fade-in-up fade-in-up-d3 mb-12">
                 <div class="price-badge inline-block rounded-2xl px-8 py-6">
-                    <p class="text-xs uppercase tracking-widest mb-1" style="color:rgba(197,165,90,0.8);">Solo hoy todo por</p>
+                    <p class="text-xs uppercase tracking-widest text-gold/80 mb-1">Solo hoy todo por</p>
                     <p class="text-5xl sm:text-6xl font-semibold tracking-tight text-white">$1,200</p>
                     <p class="text-sm text-gray-300 mt-1">Pesos MXN</p>
                 </div>
             </div>
-
-            <div class="fade-in-up fade-in-up-delay-3 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#comprar" class="btn-pago-tarjeta">
+            <div class="fade-in-up fade-in-up-d3 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#comprar" class="group bg-wine hover:bg-[#8a3842] text-white font-medium px-8 py-4 rounded-full transition-all duration-300 flex items-center gap-2 animate-pulse-glow btn-pay">
                     Comprar los 3 Cursos
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    <i data-lucide="arrow-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"></i>
                 </a>
-                <a href="#cursos" class="text-gray-400 hover:text-white font-medium px-6 py-4 rounded-full border border-white/10 hover:border-white/20 transition-all duration-300">
-                    Ver Cursos
+                <a href="#poster" class="text-gray-400 hover:text-white font-medium px-6 py-4 rounded-full border border-white/10 hover:border-white/20 transition-all duration-300">
+                    Ver Póster
                 </a>
             </div>
-
             <div class="mt-16 flex flex-wrap items-center justify-center gap-8 text-gray-500 text-sm">
-                <div class="flex items-center gap-2">
-                    <i data-lucide="video" class="w-4 h-4" style="color:rgba(197,165,90,0.6);"></i>
-                    <span>Clases grabadas</span>
-                </div>
-                <div class="flex items-center gap-2">
-                    <i data-lucide="book-open" class="w-4 h-4" style="color:rgba(197,165,90,0.6);"></i>
-                    <span>Manuales incluidos</span>
-                </div>
-                <div class="flex items-center gap-2">
-                    <i data-lucide="award" class="w-4 h-4" style="color:rgba(197,165,90,0.6);"></i>
-                    <span>3 Certificados</span>
-                </div>
+                <div class="flex items-center gap-2"><i data-lucide="video" class="w-4 h-4 text-gold/60"></i><span>Clases grabadas</span></div>
+                <div class="flex items-center gap-2"><i data-lucide="book-open" class="w-4 h-4 text-gold/60"></i><span>Manuales incluidos</span></div>
+                <div class="flex items-center gap-2"><i data-lucide="award" class="w-4 h-4 text-gold/60"></i><span>3 Certificados</span></div>
             </div>
         </div>
-
         <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-600">
             <span class="text-xs tracking-widest uppercase">Scroll</span>
             <i data-lucide="chevron-down" class="w-4 h-4 animate-bounce"></i>
         </div>
     </section>
 
-    <!-- Courses Section -->
+    <!-- POSTER IMAGE -->
+    <section id="poster" class="py-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-10">
+                <p class="text-xs font-medium tracking-widest uppercase text-gold mb-3">Póster Oficial</p>
+                <h2 class="text-3xl font-medium tracking-tight">Invierte en tu conocimiento</h2>
+            </div>
+            <div class="poster-frame rounded-2xl overflow-hidden">
+                <img src="https://z-cdn-media.chatglm.cn/files/7ee33f6d-975b-4c6f-a7cc-0fdc83d925f2.png?auth_key=1877318319-9177b0faca0a4e18b7b436200b4d751e-0-320069d1bb5080f19c4ace05818d8e2f" alt="Póster Promoción de Cursos de Vino - José Guerrero" class="w-full h-auto block">
+            </div>
+            <p class="text-center text-gray-500 text-xs mt-6 tracking-wide">TRANSFORMA TU PASIÓN EN EXPERTISE</p>
+        </div>
+    </section>
+
+    <!-- COURSES -->
     <section id="cursos" class="relative py-24 px-6">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
-                <p class="text-xs font-medium tracking-widest uppercase mb-4" style="color:#C5A55A;">Lo que incluye</p>
+                <p class="text-xs font-medium tracking-widest uppercase text-gold mb-4">Lo que incluye</p>
                 <h2 class="text-3xl sm:text-4xl font-medium tracking-tight mb-4">Tres Cursos Especializados</h2>
                 <p class="text-gray-400 font-light max-w-xl mx-auto">Cada curso ha sido diseñado por José Guerrero Garfias para brindarte conocimientos prácticos y aplicables.</p>
             </div>
-
             <div class="grid md:grid-cols-3 gap-6">
                 <!-- Course 1 -->
                 <div class="glass-card rounded-2xl overflow-hidden transition-all duration-500 group">
                     <div class="relative h-56 overflow-hidden">
-                        <img src="https://z-cdn-media.chatglm.cn/files/1c3db3f2-534e-4fde-b2e3-89744e273c97.jpg?auth_key=1877316437-4e0d8a24426941348118f1e035c0794a-0-c0285d1eb1dcf9a944a2ae5c4308b38a" alt="Correcciones Enológicas" class="w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700">
+                        <img src="https://z-cdn-media.chatglm.cn/files/1c3db3f2-534e-4fde-b2e3-89744e273c97.jpg?auth_key=1877316437-4e0d8a24426941348118f1e035c0794a-0-c0285d1eb1dcf9a944a2ae5c4308b38a" alt="Correcciones Enológicas - Descube" class="w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent"></div>
-                        <div class="absolute top-4 left-4 text-white text-xs font-medium px-3 py-1 rounded-full" style="background:rgba(114,47,55,0.8); backdrop-filter:blur(4px);">Curso 1</div>
+                        <div class="absolute top-4 left-4 bg-wine/80 backdrop-blur-sm text-white text-xs font-medium px-3 py-1 rounded-full">Curso 1</div>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center gap-2 mb-3">
-                            <i data-lucide="flask-conical" class="w-4 h-4" style="color:#C5A55A;"></i>
+                            <i data-lucide="flask-conical" class="w-4 h-4 text-gold"></i>
                             <h3 class="text-lg font-medium tracking-tight group-hover:text-gold transition-colors duration-300">Correcciones Enológicas</h3>
                         </div>
                         <p class="text-gray-400 text-sm leading-relaxed mb-5">Aprende a identificar y corregir las desviaciones y defectos más comunes del vino. Domina las técnicas de descube y corrección para mejorar la calidad.</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="text-xs px-2.5 py-1 rounded-full" style="background:rgba(255,255,255,0.05); color:#9ca3af;">Defectos</span>
-                            <span class="text-xs px-2.5 py-1 rounded-full" style="background:rgba(255,255,255,0.05); color:#9ca3af;">Descube</span>
-                            <span class="text-xs px-2.5 py-1 rounded-full" style="background:rgba(255,255,255,0.05); color:#9ca3af;">Calidad</span>
+                            <span class="text-xs bg-white/5 text-gray-400 px-2.5 py-1 rounded-full">Defectos</span>
+                            <span class="text-xs bg-white/5 text-gray-400 px-2.5 py-1 rounded-full">Descube</span>
+                            <span class="text-xs bg-white/5 text-gray-400 px-2.5 py-1 rounded-full">Calidad</span>
                         </div>
                     </div>
                 </div>
-
                 <!-- Course 2 -->
                 <div class="glass-card rounded-2xl overflow-hidden transition-all duration-500 group md:-translate-y-4">
                     <div class="relative h-56 overflow-hidden">
-                        <img src="https://z-cdn-media.chatglm.cn/files/2216e7bc-d2fa-4bbb-8e97-6b269faadb89.jpg?auth_key=1877316636-845b6c7d01694922960286ee1d6c097e-0-d751ff25f7fd70987507af1a77a0504a" alt="Análisis de Vino en Laboratorio" class="w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700">
+                        <img src="https://z-cdn-media.chatglm.cn/files/2216e7bc-d2fa-4bbb-8e97-6b269faadb89.jpg?auth_key=1877316636-845b6c7d01694922960286ee1d6c097e-0-d751ff25f7fd70987507af1a77a0504a" alt="Análisis de Vino - Filtrado y Sin Filtrar" class="w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent"></div>
-                        <div class="absolute top-4 left-4 text-white text-xs font-medium px-3 py-1 rounded-full" style="background:rgba(114,47,55,0.8); backdrop-filter:blur(4px);">Curso 2</div>
-                        <div class="absolute top-4 right-4 text-xs font-bold px-3 py-1 rounded-full" style="background:rgba(197,165,90,0.9); color:#000; backdrop-filter:blur(4px);">Popular</div>
-                        <div class="absolute bottom-4 left-4"><p class="text-[10px] uppercase tracking-widest" style="color:rgba(255,255,255,0.5);">Vino filtrado vs sin filtrar</p></div>
+                        <div class="absolute top-4 left-4 bg-wine/80 backdrop-blur-sm text-white text-xs font-medium px-3 py-1 rounded-full">Curso 2</div>
+                        <div class="absolute top-4 right-4 bg-gold/90 backdrop-blur-sm text-black text-xs font-bold px-3 py-1 rounded-full">Popular</div>
+                        <div class="absolute bottom-4 left-4"><p class="text-[10px] uppercase tracking-widest text-white/50">Vino filtrado vs sin filtrar</p></div>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center gap-2 mb-3">
-                            <i data-lucide="microscope" class="w-4 h-4" style="color:#C5A55A;"></i>
+                            <i data-lucide="microscope" class="w-4 h-4 text-gold"></i>
                             <h3 class="text-lg font-medium tracking-tight group-hover:text-gold transition-colors duration-300">Análisis de Vino en Laboratorio</h3>
                         </div>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-5">Domina las técnicas de análisis químico y sensorial del vino. Aprende a interpretar resultados de laboratorio para decisiones informadas.</p>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-5">Domina las técnicas de análisis químico y sensorial. Aprende a interpretar resultados de laboratorio para tomar decisiones informadas en la vinificación.</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="text-xs px-2.5 py-1 rounded-full" style="background:rgba(255,255,255,0.05); color:#9ca3af;">Química</span>
-                            <span class="text-xs px-2.5 py-1 rounded-full" style="background:rgba(255,255,255,0.05); color:#9ca3af;">Sensorial</span>
-                            <span class="text-xs px-2.5 py-1 rounded-full" style="background:rgba(255,255,255,0.05); color:#9ca3af;">Filtrado</span>
+                            <span class="text-xs bg-white/5 text-gray-400 px-2.5 py-1 rounded-full">Química</span>
+                            <span class="text-xs bg-white/5 text-gray-400 px-2.5 py-1 rounded-full">Sensorial</span>
+                            <span class="text-xs bg-white/5 text-gray-400 px-2.5 py-1 rounded-full">Filtrado</span>
                         </div>
                     </div>
                 </div>
-
                 <!-- Course 3 -->
                 <div class="glass-card rounded-2xl overflow-hidden transition-all duration-500 group">
                     <div class="relative h-56 overflow-hidden">
                         <img src="https://z-cdn-media.chatglm.cn/files/40d1fa6c-a6e6-45ad-8338-6af4a031b0e3.jpg?auth_key=1877316437-23eee904f79e47ca87b60166b4a206b2-0-91ba7847ee987626a5ec00f824dc20e2" alt="Microbiología del Vino" class="w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent"></div>
-                        <div class="absolute top-4 left-4 text-white text-xs font-medium px-3 py-1 rounded-full" style="background:rgba(114,47,55,0.8); backdrop-filter:blur(4px);">Curso 3</div>
+                        <div class="absolute top-4 left-4 bg-wine/80 backdrop-blur-sm text-white text-xs font-medium px-3 py-1 rounded-full">Curso 3</div>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center gap-2 mb-3">
-                            <i data-lucide="bug" class="w-4 h-4" style="color:#C5A55A;"></i>
+                            <i data-lucide="bug" class="w-4 h-4 text-gold"></i>
                             <h3 class="text-lg font-medium tracking-tight group-hover:text-gold transition-colors duration-300">Microbiología del Vino</h3>
                         </div>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-5">Conoce los microorganismos que influyen en la vinificación. Levaduras, bacterias lácticas y su papel crucial en el perfil del vino.</p>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-5">Conoce los microorganismos que influyen directamente en la vinificación. Levaduras, bacterias lácticas y su papel crucial en el perfil del vino final.</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="text-xs px-2.5 py-1 rounded-full" style="background:rgba(255,255,255,0.05); color:#9ca3af;">Levaduras</span>
-                            <span class="text-xs px-2.5 py-1 rounded-full" style="background:rgba(255,255,255,0.05); color:#9ca3af;">Bacterias</span>
-                            <span class="text-xs px-2.5 py-1 rounded-full" style="background:rgba(255,255,255,0.05); color:#9ca3af;">Fermentación</span>
+                            <span class="text-xs bg-white/5 text-gray-400 px-2.5 py-1 rounded-full">Levaduras</span>
+                            <span class="text-xs bg-white/5 text-gray-400 px-2.5 py-1 rounded-full">Bacterias</span>
+                            <span class="text-xs bg-white/5 text-gray-400 px-2.5 py-1 rounded-full">Fermentación</span>
                         </div>
                     </div>
                 </div>
@@ -365,60 +293,50 @@
         </div>
     </section>
 
-    <!-- Benefits Section -->
+    <!-- BENEFITS -->
     <section class="py-24 px-6 relative">
         <div class="absolute inset-0 bg-gradient-to-b from-transparent via-wine/5 to-transparent pointer-events-none"></div>
         <div class="max-w-5xl mx-auto relative">
             <div class="text-center mb-16">
-                <p class="text-xs font-medium tracking-widest uppercase mb-4" style="color:#C5A55A;">¿Qué recibes?</p>
+                <p class="text-xs font-medium tracking-widest uppercase text-gold mb-4">¿Qué recibes?</p>
                 <h2 class="text-3xl sm:text-4xl font-medium tracking-tight">Todo lo que necesitas para aprender</h2>
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="text-center p-6">
-                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4" style="background:rgba(114,47,55,0.2); border:1px solid rgba(114,47,55,0.2);">
-                        <i data-lucide="play-circle" class="w-6 h-6" style="color:#C5A55A;"></i>
-                    </div>
+                    <div class="w-14 h-14 rounded-2xl bg-wine/20 border border-wine/20 flex items-center justify-center mx-auto mb-4"><i data-lucide="play-circle" class="w-6 h-6 text-gold"></i></div>
                     <h4 class="font-medium text-sm mb-2">Clases Grabadas</h4>
                     <p class="text-gray-500 text-xs leading-relaxed">Acceso ilimitado a todas las clases en video.</p>
                 </div>
                 <div class="text-center p-6">
-                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4" style="background:rgba(114,47,55,0.2); border:1px solid rgba(114,47,55,0.2);">
-                        <i data-lucide="book-open" class="w-6 h-6" style="color:#C5A55A;"></i>
-                    </div>
+                    <div class="w-14 h-14 rounded-2xl bg-wine/20 border border-wine/20 flex items-center justify-center mx-auto mb-4"><i data-lucide="book-open" class="w-6 h-6 text-gold"></i></div>
                     <h4 class="font-medium text-sm mb-2">Manuales Incluidos</h4>
-                    <p class="text-gray-500 text-xs leading-relaxed">Material de apoyo descargable por curso.</p>
+                    <p class="text-gray-500 text-xs leading-relaxed">Material de apoyo descargable para cada curso.</p>
                 </div>
                 <div class="text-center p-6">
-                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4" style="background:rgba(114,47,55,0.2); border:1px solid rgba(114,47,55,0.2);">
-                        <i data-lucide="award" class="w-6 h-6" style="color:#C5A55A;"></i>
-                    </div>
+                    <div class="w-14 h-14 rounded-2xl bg-wine/20 border border-wine/20 flex items-center justify-center mx-auto mb-4"><i data-lucide="award" class="w-6 h-6 text-gold"></i></div>
                     <h4 class="font-medium text-sm mb-2">3 Certificados</h4>
                     <p class="text-gray-500 text-xs leading-relaxed">Certificado digital por cada curso completado.</p>
                 </div>
                 <div class="text-center p-6">
-                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4" style="background:rgba(114,47,55,0.2); border:1px solid rgba(114,47,55,0.2);">
-                        <i data-lucide="infinity" class="w-6 h-6" style="color:#C5A55A;"></i>
-                    </div>
+                    <div class="w-14 h-14 rounded-2xl bg-wine/20 border border-wine/20 flex items-center justify-center mx-auto mb-4"><i data-lucide="infinity" class="w-6 h-6 text-gold"></i></div>
                     <h4 class="font-medium text-sm mb-2">Acceso Permanente</h4>
-                    <p class="text-gray-500 text-xs leading-relaxed">Una vez inscrito, son tuyos para siempre.</p>
+                    <p class="text-gray-500 text-xs leading-relaxed">Los cursos son tuyos para siempre.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ★★★ SECCIÓN DE PAGO - REESCRITA SIN OVERFLOW HIDDEN ★★★ -->
+    <!-- PAYMENT SECTION -->
     <section id="comprar" class="py-24 px-6 relative">
         <div class="max-w-3xl mx-auto">
-            <div class="pago-section text-center">
-                <!-- Decoraciones de fondo -->
-                <div class="deco-1"></div>
-                <div class="deco-2"></div>
+            <div class="static-card rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-40 h-40 bg-gold/5 rounded-full blur-[80px] pointer-events-none"></div>
+                <div class="absolute bottom-0 left-0 w-32 h-32 bg-wine/10 rounded-full blur-[60px] pointer-events-none"></div>
 
-                <!-- Contenido relativo para estar arriba de decoraciones -->
-                <div style="position:relative; z-index:1;">
-                    <div class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6" style="background:rgba(197,165,90,0.1); border:1px solid rgba(197,165,90,0.2);">
-                        <i data-lucide="sparkles" class="w-3 h-3" style="color:#C5A55A;"></i>
-                        <span class="text-xs font-medium tracking-wider uppercase" style="color:#C5A55A;">Oferta Especial</span>
+                <div class="relative">
+                    <div class="inline-flex items-center gap-2 bg-gold/10 border border-gold/20 rounded-full px-4 py-1.5 mb-6">
+                        <i data-lucide="sparkles" class="w-3 h-3 text-gold"></i>
+                        <span class="text-xs font-medium tracking-wider uppercase text-gold">Oferta Especial</span>
                     </div>
 
                     <h2 class="text-3xl sm:text-4xl font-medium tracking-tight mb-3">3 Cursos Completos</h2>
@@ -427,55 +345,48 @@
                     <div class="flex items-center justify-center gap-4 mb-8">
                         <span class="text-gray-500 line-through text-2xl">$3,600</span>
                         <span class="text-5xl font-semibold text-white">$1,200</span>
-                        <span class="text-xs font-bold px-3 py-1 rounded-full" style="background:rgba(34,197,94,0.2); color:#4ade80;">-67%</span>
+                        <span class="bg-green-500/20 text-green-400 text-xs font-bold px-3 py-1 rounded-full">-67%</span>
                     </div>
                     <p class="text-gray-500 text-sm mb-10">Pesos MXN · Pago único · Sin recurrentes</p>
 
-                    <!-- ★ BOTONES DE PAGO - Estilos directos en CSS ★ -->
-                    <div style="display:flex; flex-direction:column; gap:1rem; align-items:center; margin-bottom:2rem;" class="sm:flex-row">
-                        <a href="https://buy.stripe.com/28EeVc0JjgxQ44r4sk4sE01" target="_blank" rel="noopener" class="btn-pago-tarjeta" style="width:100%; max-width:320px;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+                    <!-- BOTONES DE PAGO -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                        <a href="https://buy.stripe.com/28EeVc0JjgxQ44r4sk4sE01" target="_blank" rel="noopener"
+                           class="btn-pay inline-flex items-center justify-center gap-3 bg-wine hover:bg-[#8a3842] text-white font-medium px-8 py-4 rounded-full transition-all duration-300 w-full sm:w-auto animate-pulse-glow no-underline">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
                             Pagar con Tarjeta
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                            <svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                         </a>
-                        <button onclick="openDepositModal()" class="btn-pago-deposito" style="width:100%; max-width:320px;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9h.01"/><path d="M9 12h.01"/><path d="M9 15h.01"/><path d="M9 18h.01"/></svg>
+                        <button type="button" onclick="openDepositModal()"
+                           class="btn-pay inline-flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 text-white font-medium px-8 py-4 rounded-full border border-white/10 hover:border-white/20 transition-all duration-300 w-full sm:w-auto">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg>
                             Pagar con Depósito
                         </button>
                     </div>
 
-                    <div class="flex items-center justify-center gap-6 text-gray-600 text-xs flex-wrap">
-                        <div class="flex items-center gap-1.5">
-                            <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
-                            <span>Pago seguro</span>
-                        </div>
-                        <div class="flex items-center gap-1.5">
-                            <i data-lucide="lock" class="w-3.5 h-3.5"></i>
-                            <span>Datos protegidos</span>
-                        </div>
-                        <div class="flex items-center gap-1.5">
-                            <i data-lucide="zap" class="w-3.5 h-3.5"></i>
-                            <span>Acceso inmediato</span>
-                        </div>
+                    <div class="flex items-center justify-center gap-6 text-gray-600 text-xs">
+                        <div class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg><span>Pago seguro</span></div>
+                        <div class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>Datos protegidos</span></div>
+                        <div class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span>Acceso inmediato</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Instructor -->
+    <!-- INSTRUCTOR -->
     <section class="py-24 px-6">
         <div class="max-w-5xl mx-auto">
-            <div class="rounded-2xl p-8 sm:p-12 flex flex-col md:flex-row items-center gap-8" style="background:rgba(255,255,255,0.03); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.08);">
-                <div class="w-36 h-44 md:w-44 md:h-56 rounded-2xl overflow-hidden flex-shrink-0" style="border:2px solid rgba(114,47,55,0.3);">
+            <div class="static-card rounded-2xl p-8 sm:p-12 flex flex-col md:flex-row items-center gap-8">
+                <div class="w-36 h-44 md:w-44 md:h-56 rounded-2xl overflow-hidden flex-shrink-0 border-2 border-wine/30">
                     <img src="https://z-cdn-media.chatglm.cn/files/2bfab49e-9b5c-4389-92fa-f5ec899583af.jpeg?auth_key=1877316437-06d6d42d215d47a78374c01936f18d42-0-3d56b03439e706f7444b6787bb8a0eea" alt="José Guerrero Garfias" class="w-full h-full object-cover instructor-img">
                 </div>
                 <div>
-                    <p class="text-xs font-medium tracking-widest uppercase mb-3" style="color:#C5A55A;">Tu Instructor</p>
+                    <p class="text-xs font-medium tracking-widest uppercase text-gold mb-3">Tu Instructor</p>
                     <h3 class="text-2xl font-medium tracking-tight mb-3">José Guerrero Garfias</h3>
                     <p class="text-gray-400 font-light leading-relaxed text-sm mb-5">Experto en enología con amplia experiencia en la producción y análisis de vinos mexicanos. Apasionado por compartir conocimientos prácticos que permitan a los estudiantes elevar el nivel de su producción vinícola de manera profesional y accesible.</p>
                     <div class="flex items-center gap-2">
-                        <i data-lucide="wine" class="w-4 h-4" style="color:rgba(197,165,90,0.6);"></i>
+                        <i data-lucide="wine" class="w-4 h-4 text-gold/60"></i>
                         <span class="text-xs text-gray-500">Especialista en vinificación y análisis enológico</span>
                     </div>
                 </div>
@@ -483,76 +394,83 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- FAQ -->
     <section class="py-24 px-6 relative">
         <div class="max-w-3xl mx-auto">
             <div class="text-center mb-12">
-                <p class="text-xs font-medium tracking-widest uppercase mb-4" style="color:#C5A55A;">Resuelve tus dudas</p>
+                <p class="text-xs font-medium tracking-widest uppercase text-gold mb-4">Resuelve tus dudas</p>
                 <h2 class="text-3xl font-medium tracking-tight">Preguntas Frecuentes</h2>
             </div>
-            <div class="space-y-3" id="faq-container">
-                <div class="faq-item rounded-xl overflow-hidden" style="background:rgba(255,255,255,0.03); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.08);">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left">
+            <div class="space-y-3">
+                <div class="static-card rounded-xl overflow-hidden">
+                    <button type="button" onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left cursor-pointer">
                         <span class="font-medium text-sm">¿Cómo accedo a los cursos después de pagar?</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500 transition-transform duration-300 faq-icon"></i>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500 transition-transform duration-300 faq-icon flex-shrink-0 ml-4"></i>
                     </button>
                     <div class="faq-answer hidden px-5 pb-5">
                         <p class="text-gray-400 text-sm leading-relaxed">Si pagas con tarjeta, tu acceso se activa automáticamente. Si pagas con depósito o transferencia, envía tu comprobante por WhatsApp al <strong class="text-white">492 134 4124</strong> y recibirás tus accesos en máximo 24 horas.</p>
                     </div>
                 </div>
-                <div class="faq-item rounded-xl overflow-hidden" style="background:rgba(255,255,255,0.03); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.08);">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left">
+                <div class="static-card rounded-xl overflow-hidden">
+                    <button type="button" onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left cursor-pointer">
                         <span class="font-medium text-sm">¿Por cuánto tiempo tengo acceso?</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500 transition-transform duration-300 faq-icon"></i>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500 transition-transform duration-300 faq-icon flex-shrink-0 ml-4"></i>
                     </button>
                     <div class="faq-answer hidden px-5 pb-5">
                         <p class="text-gray-400 text-sm leading-relaxed">El acceso es permanente. Una vez inscrito, los cursos son tuyos para siempre y puedes ver las clases las veces que quieras.</p>
                     </div>
                 </div>
-                <div class="faq-item rounded-xl overflow-hidden" style="background:rgba(255,255,255,0.03); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.08);">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left">
+                <div class="static-card rounded-xl overflow-hidden">
+                    <button type="button" onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left cursor-pointer">
                         <span class="font-medium text-sm">¿Los certificados tienen validez oficial?</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500 transition-transform duration-300 faq-icon"></i>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500 transition-transform duration-300 faq-icon flex-shrink-0 ml-4"></i>
                     </button>
                     <div class="faq-answer hidden px-5 pb-5">
-                        <p class="text-gray-400 text-sm leading-relaxed">Recibirás un certificado digital por cada curso completado que avala tus conocimientos como reconocimiento de tu formación enológica.</p>
+                        <p class="text-gray-400 text-sm leading-relaxed">Recibirás un certificado digital por cada curso completado que avala tus conocimientos en el área de la enología.</p>
                     </div>
                 </div>
-                <div class="faq-item rounded-xl overflow-hidden" style="background:rgba(255,255,255,0.03); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.08);">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left">
+                <div class="static-card rounded-xl overflow-hidden">
+                    <button type="button" onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left cursor-pointer">
                         <span class="font-medium text-sm">¿Necesito experiencia previa?</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500 transition-transform duration-300 faq-icon"></i>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500 transition-transform duration-300 faq-icon flex-shrink-0 ml-4"></i>
                     </button>
                     <div class="faq-answer hidden px-5 pb-5">
-                        <p class="text-gray-400 text-sm leading-relaxed">Los cursos están diseñados para ser accesibles tanto para principiantes como para quienes ya tienen conocimientos básicos de vinificación.</p>
+                        <p class="text-gray-400 text-sm leading-relaxed">Los cursos están diseñados para principiantes y personas con conocimientos básicos. Cada tema se explica de forma clara y práctica.</p>
                     </div>
                 </div>
-                <div class="faq-item rounded-xl overflow-hidden" style="background:rgba(255,255,255,0.03); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.08);">
-                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left">
+                <div class="static-card rounded-xl overflow-hidden">
+                    <button type="button" onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left cursor-pointer">
                         <span class="font-medium text-sm">¿Puedo pagar desde otro país?</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500 transition-transform duration-300 faq-icon"></i>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500 transition-transform duration-300 faq-icon flex-shrink-0 ml-4"></i>
                     </button>
                     <div class="faq-answer hidden px-5 pb-5">
-                        <p class="text-gray-400 text-sm leading-relaxed">Sí, con tarjeta de crédito o débito puedes pagar desde cualquier país a través de Stripe. Para depósito bancario la cuenta es de México (BBVA), recomendamos tarjeta si estás fuera del país.</p>
+                        <p class="text-gray-400 text-sm leading-relaxed">Sí, con tarjeta puedes pagar desde cualquier país a través de Stripe. Para depósito, la cuenta es de México (BBVA), recomendamos tarjeta si estás fuera del país.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA -->
+    <!-- FINAL CTA -->
     <section class="py-24 px-6">
         <div class="max-w-3xl mx-auto text-center">
             <h2 class="text-3xl sm:text-4xl font-medium tracking-tight mb-4">No dejes pasar esta oportunidad</h2>
             <p class="text-gray-400 font-light mb-10 max-w-lg mx-auto">Invierte en tu formación enológica hoy. 3 cursos, manuales, certificados y acceso permanente por solo $1,200 MXN.</p>
-            <a href="https://buy.stripe.com/28EeVc0JjgxQ44r4sk4sE01" target="_blank" rel="noopener" class="btn-pago-tarjeta">
-                Comprar Ahora — $1,200 MXN
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </a>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://buy.stripe.com/28EeVc0JjgxQ44r4sk4sE01" target="_blank" rel="noopener"
+                   class="btn-pay inline-flex items-center justify-center gap-2 bg-wine hover:bg-[#8a3842] text-white font-medium px-10 py-4 rounded-full transition-all duration-300 animate-pulse-glow no-underline">
+                    Comprar con Tarjeta — $1,200 MXN
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <button type="button" onclick="openDepositModal()"
+                   class="btn-pay inline-flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-white font-medium px-8 py-4 rounded-full border border-white/10 hover:border-white/20 transition-all duration-300">
+                    Depósito / Transferencia
+                </button>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer class="border-t border-white/5 py-12 px-6">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <div class="flex items-center gap-3">
@@ -571,175 +489,163 @@
         </div>
     </footer>
 
-    <!-- Deposit Modal -->
-    <div id="depositModal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4" style="background:rgba(0,0,0,0.7); backdrop-filter:blur(4px);">
-        <div class="modal-content rounded-2xl p-8 max-w-md w-full relative" style="background:rgba(20,20,20,0.98); border:1px solid rgba(255,255,255,0.1); max-height:90vh; overflow-y:auto;">
-            <button onclick="closeDepositModal()" style="position:absolute; top:1rem; right:1rem; width:2rem; height:2rem; border-radius:50%; background:rgba(255,255,255,0.05); border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:10;">
-                <i data-lucide="x" class="w-4 h-4 text-gray-400"></i>
+    <!-- DEPOSIT MODAL -->
+    <div id="depositModal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
+        <div class="modal-content static-card rounded-2xl p-8 max-w-md w-full relative max-h-[90vh] overflow-y-auto">
+            <button type="button" onclick="closeDepositModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors z-10 cursor-pointer">
+                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
             </button>
 
-            <div style="width:3.5rem; height:3.5rem; border-radius:1rem; background:rgba(114,47,55,0.2); border:1px solid rgba(114,47,55,0.2); display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem;">
-                <i data-lucide="building-2" class="w-6 h-6" style="color:#C5A55A;"></i>
+            <div class="w-14 h-14 rounded-2xl bg-wine/20 border border-wine/20 flex items-center justify-center mx-auto mb-6">
+                <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg>
             </div>
 
             <h3 class="text-xl font-medium tracking-tight text-center mb-2">Pago por Depósito o Transferencia</h3>
             <p class="text-gray-500 text-sm text-center mb-8">Realiza tu pago y envía el comprobante por WhatsApp.</p>
 
             <div class="space-y-3 mb-6">
-                <div style="background:rgba(255,255,255,0.05); border-radius:0.75rem; padding:1rem;">
+                <div class="bg-white/5 rounded-xl p-4">
                     <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Banco</p>
                     <p class="font-medium text-sm">BBVA</p>
                 </div>
-                <div style="background:rgba(255,255,255,0.05); border-radius:0.75rem; padding:1rem;">
+                <div class="bg-white/5 rounded-xl p-4">
                     <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Titular</p>
                     <p class="font-medium text-sm">José Guerrero Garfias</p>
                 </div>
-                <div style="background:rgba(255,255,255,0.05); border-radius:0.75rem; padding:1rem;">
-                    <div style="display:flex; align-items:center; justify-content:space-between;">
+                <div class="bg-white/5 rounded-xl p-4">
+                    <div class="flex items-center justify-between">
                         <div>
                             <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Número de Cuenta</p>
                             <p class="font-medium text-sm tracking-wide">4152 3145 9813 3463</p>
                         </div>
-                        <button onclick="copyText('4152314598133463', this)" style="width:2rem; height:2rem; border-radius:0.5rem; background:rgba(255,255,255,0.05); border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0;" title="Copiar">
-                            <i data-lucide="copy" class="w-3.5 h-3.5 text-gray-400"></i>
+                        <button type="button" onclick="copyText('4152314598133463', this)" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors flex-shrink-0 cursor-pointer" title="Copiar">
+                            <svg class="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
                         </button>
                     </div>
                 </div>
-                <div style="background:rgba(255,255,255,0.05); border-radius:0.75rem; padding:1rem;">
-                    <div style="display:flex; align-items:center; justify-content:space-between;">
+                <div class="bg-white/5 rounded-xl p-4">
+                    <div class="flex items-center justify-between">
                         <div>
                             <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">CLABE Interbancaria</p>
                             <p class="font-medium text-sm tracking-wide">012 074 01558665643 7</p>
                         </div>
-                        <button onclick="copyText('012074015586656437', this)" style="width:2rem; height:2rem; border-radius:0.5rem; background:rgba(255,255,255,0.05); border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0;" title="Copiar">
-                            <i data-lucide="copy" class="w-3.5 h-3.5 text-gray-400"></i>
+                        <button type="button" onclick="copyText('012074015586656437', this)" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors flex-shrink-0 cursor-pointer" title="Copiar">
+                            <svg class="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
                         </button>
                     </div>
                 </div>
-                <div style="background:rgba(255,255,255,0.05); border-radius:0.75rem; padding:1rem;">
+                <div class="bg-white/5 rounded-xl p-4">
                     <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Monto a Pagar</p>
-                    <p class="font-medium text-lg" style="color:#C5A55A;">$1,200.00 MXN</p>
+                    <p class="font-medium text-lg text-gold">$1,200.00 MXN</p>
                 </div>
             </div>
 
-            <!-- WhatsApp Instructions -->
-            <div style="background:rgba(37,211,102,0.1); border:1px solid rgba(37,211,102,0.3); border-radius:0.75rem; padding:1.25rem; margin-bottom:1rem;">
-                <div style="display:flex; align-items:flex-start; gap:0.75rem;">
-                    <div style="width:2.5rem; height:2.5rem; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <!-- WhatsApp Info -->
+            <div class="bg-green-500/10 border border-green-500/30 rounded-xl p-5 mb-4">
+                <div class="flex items-start gap-3">
+                    <div class="w-10 h-10 rounded-full wa-green flex items-center justify-center flex-shrink-0">
                         <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                     </div>
                     <div>
-                        <p class="text-sm font-medium" style="color:#4ade80;">Envía tu comprobante por WhatsApp</p>
-                        <p class="text-xs leading-relaxed" style="color:rgba(74,222,128,0.7);">Una vez realizado tu depósito o transferencia, envía una captura del comprobante al <strong style="color:#86efac;">492 134 4124</strong> con tu nombre completo y correo electrónico.</p>
+                        <p class="text-sm font-medium text-green-400 mb-1">Envía tu comprobante por WhatsApp</p>
+                        <p class="text-xs text-green-400/70 leading-relaxed">Una vez realizado tu depósito o transferencia, envía una captura del comprobante al <strong class="text-green-300">492 134 4124</strong> con tu nombre completo y correo electrónico para activar tus accesos.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- WhatsApp Button -->
             <a href="https://wa.me/524921344124?text=Hola%2C%20realic%C3%A9%20mi%20dep%C3%B3sito%20por%20los%203%20cursos%20de%20vino%20(%241%2C200%20MXN).%20Anexo%20mi%20comprobante%20y%20mis%20datos%3A" target="_blank" rel="noopener"
-               style="display:flex; align-items:center; justify-content:center; gap:0.75rem; width:100%; background:#25D366; color:#fff; font-weight:500; font-size:0.95rem; padding:0.875rem; border-radius:9999px; border:none; cursor:pointer; text-decoration:none; transition:all 0.3s; margin-bottom:0.75rem;"
-               onmouseover="this.style.background='#1ebe57'; this.style.boxShadow='0 10px 25px rgba(37,211,102,0.3)';"
-               onmouseout="this.style.background='#25D366'; this.style.boxShadow='none';">
-                <svg style="width:20px; height:20px;" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                Enviar Comprobante por WhatsApp
+               class="block w-full wa-green text-white font-medium py-3.5 rounded-full transition-all duration-300 text-center mb-4 hover:shadow-lg hover:shadow-green-500/20 no-underline">
+                <span class="inline-flex items-center justify-center gap-3">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Enviar Comprobante por WhatsApp
+                </span>
             </a>
 
-            <button onclick="closeDepositModal()" style="width:100%; background:rgba(255,255,255,0.05); color:#9ca3af; font-weight:500; font-size:0.875rem; padding:0.75rem; border-radius:9999px; border:1px solid rgba(255,255,255,0.1); cursor:pointer; transition:all 0.3s;"
-               onmouseover="this.style.background='rgba(255,255,255,0.1)'; this.style.color='#fff';"
-               onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.color='#9ca3af';">
+            <button type="button" onclick="closeDepositModal()" class="block w-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white font-medium py-3 rounded-full border border-white/10 hover:border-white/20 transition-all duration-300 text-sm cursor-pointer">
                 Cerrar
             </button>
         </div>
     </div>
 
-    <!-- Copy Toast -->
-    <div id="copyToast" class="copy-toast fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] text-white text-sm font-medium px-5 py-2.5 rounded-full flex items-center gap-2 shadow-2xl" style="background:#722F37;">
-        <i data-lucide="check" class="w-4 h-4"></i>
+    <!-- TOAST -->
+    <div id="copyToast" class="copy-toast fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] bg-wine text-white text-sm font-medium px-5 py-2.5 rounded-full flex items-center gap-2 shadow-2xl">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
         <span>¡Copiado al portapapeles!</span>
     </div>
 
-    <!-- Floating WhatsApp Button -->
+    <!-- FLOATING WHATSAPP -->
     <a href="https://wa.me/524921344124?text=Hola%2C%20me%20interesa%20la%20promoci%C3%B3n%20de%20los%203%20cursos%20de%20vino%20por%20%241%2C200%20MXN" target="_blank" rel="noopener"
-       style="position:fixed; bottom:1.5rem; right:1.5rem; z-index:40; width:3.5rem; height:3.5rem; background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 15px rgba(37,211,102,0.4); transition:all 0.3s; text-decoration:none;"
-       onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 6px 25px rgba(37,211,102,0.5)';"
-       onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 15px rgba(37,211,102,0.4)';"
+       class="fixed bottom-6 right-6 z-40 w-14 h-14 wa-green rounded-full flex items-center justify-center shadow-lg shadow-green-500/30 hover:shadow-green-500/50 hover:scale-110 transition-all duration-300"
        title="Chatear por WhatsApp">
-        <svg style="width:1.75rem; height:1.75rem;" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
 
     <script>
-        // Initialize Lucide icons
         lucide.createIcons();
 
         function openDepositModal() {
             document.getElementById('depositModal').classList.add('active');
             document.body.style.overflow = 'hidden';
-            lucide.createIcons();
         }
-
         function closeDepositModal() {
             document.getElementById('depositModal').classList.remove('active');
             document.body.style.overflow = '';
         }
-
         document.getElementById('depositModal').addEventListener('click', function(e) {
             if (e.target === this) closeDepositModal();
         });
-
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') closeDepositModal();
         });
 
         function copyText(text, btn) {
-            navigator.clipboard.writeText(text).then(() => {
-                const toast = document.getElementById('copyToast');
+            navigator.clipboard.writeText(text).then(function() {
+                var toast = document.getElementById('copyToast');
                 toast.classList.add('show');
-                setTimeout(() => toast.classList.remove('show'), 2000);
+                setTimeout(function() { toast.classList.remove('show'); }, 2000);
                 btn.style.background = 'rgba(34,197,94,0.2)';
-                setTimeout(() => btn.style.background = 'rgba(255,255,255,0.05)', 1000);
-            }).catch(() => {
-                const textArea = document.createElement('textarea');
-                textArea.value = text;
-                textArea.style.position = 'fixed';
-                textArea.style.left = '-9999px';
-                document.body.appendChild(textArea);
-                textArea.select();
+                setTimeout(function() { btn.style.background = ''; }, 1000);
+            }).catch(function() {
+                var ta = document.createElement('textarea');
+                ta.value = text;
+                ta.style.position = 'fixed';
+                ta.style.left = '-9999px';
+                document.body.appendChild(ta);
+                ta.select();
                 document.execCommand('copy');
-                document.body.removeChild(textArea);
-                const toast = document.getElementById('copyToast');
+                document.body.removeChild(ta);
+                var toast = document.getElementById('copyToast');
                 toast.classList.add('show');
-                setTimeout(() => toast.classList.remove('show'), 2000);
+                setTimeout(function() { toast.classList.remove('show'); }, 2000);
             });
         }
 
         function toggleFaq(button) {
-            const item = button.parentElement;
-            const answer = item.querySelector('.faq-answer');
-            const icon = button.querySelector('.faq-icon');
-            const isOpen = !answer.classList.contains('hidden');
-            document.querySelectorAll('.faq-answer').forEach(a => a.classList.add('hidden'));
-            document.querySelectorAll('.faq-icon').forEach(i => i.style.transform = 'rotate(0deg)');
+            var item = button.parentElement;
+            var answer = item.querySelector('.faq-answer');
+            var icon = button.querySelector('.faq-icon');
+            var isOpen = !answer.classList.contains('hidden');
+            document.querySelectorAll('.faq-answer').forEach(function(a) { a.classList.add('hidden'); });
+            document.querySelectorAll('.faq-icon').forEach(function(i) { i.style.transform = 'rotate(0deg)'; });
             if (!isOpen) {
                 answer.classList.remove('hidden');
                 icon.style.transform = 'rotate(180deg)';
             }
         }
 
-        // Scroll animations only for course cards
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+        var obs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
                 }
             });
         }, { threshold: 0.1 });
-
-        document.querySelectorAll('.glass-card').forEach(card => {
+        document.querySelectorAll('.glass-card').forEach(function(card) {
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';
             card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
+            obs.observe(card);
         });
     </script>
 </body>
