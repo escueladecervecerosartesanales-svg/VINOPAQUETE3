@@ -1,652 +1,360 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cursos de Vino | José Guerrero - Promoción Especial</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: {
-                        wine: '#722F37',
-                        gold: '#C5A55A',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        ::selection { background: #722F37; color: #fff; }
-        body { font-family: 'Inter', sans-serif; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oferta Exclusiva — Cursos y Manuales de Enología | José Guerrero · Consultor</title>
+<meta name="description" content="3 cursos técnicos + pack de 7 manuales especializados en ciencia del vino. Oferta exclusiva $1,000 MXN. Acceso inmediato y de por vida.">
+<style>
+:root{--vino:#3a0c17;--vino2:#5c1627;--oro:#c9a13b;--orocl:#ecd493;--crema:#f6efe0;--grad:linear-gradient(180deg,#f4e2a4,#d9b45a 45%,#c9a13b 65%,#8f6d20)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Georgia,'Times New Roman',serif;background:var(--crema);color:#2e1a21;line-height:1.6;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.c{width:min(1050px,92%);margin:0 auto}
+h2{font-size:clamp(1.6rem,3.5vw,2.4rem);color:var(--vino2);text-align:center;line-height:1.2}
+.sub{text-align:center;max-width:640px;margin:12px auto 0;color:#6b4a52;font-family:Arial,sans-serif;font-size:.98rem}
+.sec{padding:64px 0}
+.btn{display:inline-block;background:var(--grad);color:#3a0c16;font-weight:bold;padding:15px 30px;border-radius:12px;font-size:1rem;box-shadow:0 8px 20px -6px rgba(201,161,59,.7);transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn2{display:inline-block;border:2px solid var(--orocl);color:var(--orocl);padding:13px 26px;border-radius:12px;font-weight:bold;transition:background .2s}
+.btn2:hover{background:rgba(236,212,147,.12)}
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
-        }
-        @keyframes floatReverse {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(15px) rotate(-2deg); }
-        }
-        @keyframes shimmer {
-            0% { background-position: -200% center; }
-            100% { background-position: 200% center; }
-        }
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(114, 47, 55, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(114, 47, 55, 0.6); }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-float { animation: float 6s ease-in-out infinite; }
-        .animate-float-reverse { animation: floatReverse 7s ease-in-out infinite; }
-        .animate-shimmer {
-            background: linear-gradient(90deg, #C5A55A 0%, #f0dfa0 40%, #C5A55A 80%);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shimmer 3s linear infinite;
-        }
-        .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
-        .fade-in-up { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
-        .fade-in-up-d1 { animation-delay: 0.15s; }
-        .fade-in-up-d2 { animation-delay: 0.3s; }
-        .fade-in-up-d3 { animation-delay: 0.45s; }
+/* BARRA SUPERIOR */
+.top{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(34,5,11,.96);border-bottom:2px solid var(--oro);display:flex;align-items:center;gap:14px;padding:9px 16px}
+.top b{color:#fff;font-size:1.05rem;white-space:nowrap}
+.top b s{color:#e9a6b1;font-size:.8rem}
+.top .btn{margin-left:auto;padding:9px 18px;font-size:.85rem;white-space:nowrap}
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: background 0.5s, border-color 0.5s;
-        }
-        .glass-card:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(197, 165, 90, 0.3);
-        }
+/* HERO CON IMAGEN */
+.hero{background:radial-gradient(900px 420px at 82% 8%,rgba(201,161,59,.2),transparent 60%),linear-gradient(160deg,#320a13,#22050b);padding:130px 0 70px}
+.hgrid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+@media(max-width:860px){.hgrid{grid-template-columns:1fr;text-align:center}.hero .btn{margin-top:6px}}
+.hk{color:var(--orocl);letter-spacing:.3em;font-size:.72rem;font-weight:bold;text-transform:uppercase;font-family:Arial,sans-serif}
+.hero h1{font-size:clamp(2.1rem,5.5vw,3.8rem);background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin:14px 0;line-height:1.1}
+.hrule{height:2px;width:130px;margin:0 0 20px;background:linear-gradient(90deg,var(--oro),transparent)}
+@media(max-width:860px){.hrule{margin:0 auto 20px}}
+.hero p.lead{color:#e8d9c4;max-width:560px;margin-bottom:26px;font-size:1.06rem}
+.hero p.lead b{color:#fff}
+.himg{position:relative;border-radius:18px;overflow:hidden;border:3px solid var(--oro);box-shadow:0 24px 50px -18px rgba(0,0,0,.7),0 0 60px rgba(201,161,59,.22)}
+.himg img{width:100%;height:100%;object-fit:cover;aspect-ratio:1/1}
+.himg::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 40px rgba(34,5,11,.45);border-radius:15px;pointer-events:none}
+.hbadge{position:absolute;bottom:14px;left:14px;background:rgba(34,5,11,.85);border:1.5px solid var(--oro);color:var(--orocl);font-family:Arial,sans-serif;font-weight:bold;font-size:.72rem;letter-spacing:.14em;padding:8px 16px;border-radius:99px;text-transform:uppercase}
 
-        .static-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
+/* TEMPORIZADOR */
+.reloj{background:linear-gradient(180deg,#4a0d1b,var(--vino));border-top:2px solid var(--oro);border-bottom:4px solid var(--oro);padding:26px 16px;text-align:center}
+.reloj h3{color:#fff;font-size:clamp(1.05rem,2.5vw,1.5rem)}
+.reloj h3 em{font-style:normal;color:#ff5b6e}
+.reloj small{display:block;color:#d8c08a;letter-spacing:.25em;font-size:.7rem;font-family:Arial,sans-serif;font-weight:bold;margin-top:4px}
+.timer{display:flex;gap:12px;justify-content:center;margin-top:16px}
+.tb{background:rgba(0,0,0,.35);border:2px solid var(--oro);border-radius:12px;min-width:84px;padding:10px 6px}
+.tn{font-size:2.2rem;font-weight:bold;color:var(--orocl);line-height:1}
+.tc{font-size:.6rem;letter-spacing:.25em;color:#d8c08a;font-family:Arial,sans-serif;font-weight:bold;margin-top:5px}
 
-        .price-badge {
-            background: linear-gradient(135deg, #722F37 0%, #9B2335 50%, #722F37 100%);
-            animation: pulse-glow 2s ease-in-out infinite;
-        }
+/* CURSOS */
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:40px}
+.wcard{border:3px solid var(--oro);border-radius:16px;aspect-ratio:16/10;display:grid;place-items:center;box-shadow:0 14px 26px -14px rgba(50,10,19,.55);transition:transform .25s}
+.wcard:hover{transform:translateY(-6px)}
+.oscuro{background:linear-gradient(140deg,#571527,#25060d)}
+.dorado{background:linear-gradient(140deg,#e3c06c,#96742a)}
+.wrow{display:flex;align-items:center;gap:16px;font-size:44px}
+.play{width:50px;height:50px;border-radius:50%;background:radial-gradient(circle at 32% 28%,#f7e6ae,#c9a13b 60%,#8a6a1f);border:2px solid #fff8;position:relative;flex:none}
+.play::after{content:"";border-left:15px solid #3f0c17;border-top:9px solid transparent;border-bottom:9px solid transparent;position:absolute;top:14px;left:19px}
+.wtit{font-weight:bold;color:var(--vino2);font-size:1.2rem;text-align:center;margin-top:14px;line-height:1.3}
+.wdesc{font-family:Arial,sans-serif;font-size:.85rem;color:#7a5560;text-align:center;max-width:270px;margin:6px auto 0}
 
-        .hero-gradient {
-            background: radial-gradient(ellipse at 30% 20%, rgba(114, 47, 55, 0.15) 0%, transparent 50%),
-                        radial-gradient(ellipse at 70% 80%, rgba(197, 165, 90, 0.08) 0%, transparent 50%);
-        }
+/* MANUALES */
+.ebooks{background:linear-gradient(180deg,var(--crema),#efe4cc)}
+.books{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-end;gap:14px;margin-top:44px}
+.book{width:132px;height:196px;border-radius:3px 9px 9px 3px;padding:18px 10px 12px;display:flex;flex-direction:column;align-items:center;text-align:center;color:#f5ead0;box-shadow:inset 8px 0 10px -5px rgba(255,255,255,.3),inset -7px 0 10px -4px rgba(0,0,0,.5),0 18px 28px -12px rgba(40,10,15,.6);transition:transform .25s}
+.book:hover{transform:translateY(-10px)}
+.book h4{font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;line-height:1.5;font-weight:bold}
+.book span{margin-top:auto;font-size:.55rem;letter-spacing:.2em;color:#ecd9a8;text-transform:uppercase}
+.b1{background:linear-gradient(150deg,#6b1a2c,#43101c)} .b2{background:linear-gradient(150deg,#541020,#320812)}
+.b3{background:linear-gradient(150deg,#27365c,#141d38)} .b4{background:linear-gradient(150deg,#2c4526,#162412)}
+.b5{background:linear-gradient(150deg,#1f4a35,#0f2a1d)} .b6{background:linear-gradient(150deg,#2c3a63,#161f3d)}
+.b7{background:linear-gradient(150deg,#5d5a26,#33321a)}
 
-        .grain {
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-        }
+/* BENEFICIOS */
+.bens{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;margin-top:40px}
+.ben{background:#fff;border:1px solid #e7d9bd;border-radius:14px;padding:26px 20px;text-align:center;transition:transform .25s,box-shadow .25s}
+.ben:hover{transform:translateY(-5px);box-shadow:0 16px 30px -18px rgba(70,20,30,.45)}
+.ben i{font-style:normal;font-size:2.2rem;display:block;margin-bottom:12px}
+.ben h3{color:var(--vino2);font-size:1.05rem;margin-bottom:6px}
+.ben p{font-family:Arial,sans-serif;font-size:.85rem;color:#7a5560}
 
-        .copy-toast {
-            transform: translateY(20px);
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-        .copy-toast.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
+/* PRECIO */
+.precio{background:radial-gradient(800px 400px at 50% 0%,rgba(201,161,59,.15),transparent 60%),linear-gradient(165deg,var(--vino2),var(--vino));color:#fff}
+.precio h2{color:#fff}
+.precio .sub{color:#e3cfae}
+.pgrid{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;margin-top:44px}
+@media(max-width:850px){.pgrid{grid-template-columns:1fr}}
+.incbox{background:rgba(0,0,0,.28);border:1px solid rgba(201,161,59,.4);border-radius:18px;padding:30px}
+.incbox h3{color:var(--orocl);margin-bottom:16px;font-size:1.3rem}
+.inc{display:flex;gap:12px;padding:11px 0;border-bottom:1px dashed rgba(201,161,59,.3);font-family:Arial,sans-serif}
+.inc:last-child{border:0}
+.inc .ck{width:24px;height:24px;flex:none;border-radius:50%;background:var(--grad);color:#3a0c16;font-weight:bold;display:grid;place-items:center;font-size:.85rem}
+.inc b{color:#fff;display:block;font-size:.93rem}
+.inc span{color:#d8c3a2;font-size:.82rem}
+.pcard{background:linear-gradient(170deg,#5c1627,#3a0c17);border:2px solid var(--oro);border-radius:18px;padding:36px 28px;text-align:center;position:relative;box-shadow:0 20px 44px -18px rgba(0,0,0,.6)}
+.rib{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--grad);color:#3a0c16;font-weight:bold;font-size:.7rem;letter-spacing:.15em;padding:6px 20px;border-radius:99px;white-space:nowrap;font-family:Arial,sans-serif}
+.old{color:#e9c9d0;font-size:1.35rem;text-decoration:line-through;text-decoration-color:#ff4d63;text-decoration-thickness:3px;font-weight:bold}
+.new{font-size:clamp(3rem,7vw,4.3rem);font-weight:bold;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.05}
+.mxn{display:inline-block;background:var(--grad);color:#3a0c16;font-weight:bold;letter-spacing:.2em;font-size:.78rem;padding:5px 16px;border-radius:99px;margin:8px 0 20px;font-family:Arial,sans-serif}
+.pcard .btn{display:block;margin-top:6px}
+.pcard .btn2{display:block;margin-top:12px}
 
-        .modal-overlay {
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-        .modal-overlay.active {
-            opacity: 1;
-            pointer-events: all;
-        }
-        .modal-content {
-            transform: scale(0.9) translateY(20px);
-            transition: transform 0.3s ease;
-        }
-        .modal-overlay.active .modal-content {
-            transform: scale(1) translateY(0);
-        }
+/* PAGO */
+.pays{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;margin-top:40px;text-align:left}
+.pay{background:#fff;border:1px solid #e7d9bd;border-radius:16px;padding:28px;box-shadow:0 12px 26px -16px rgba(70,20,30,.4);border-top:5px solid var(--oro)}
+.pay h3{color:var(--vino2);display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.pay .n{width:38px;height:38px;border-radius:10px;background:var(--vino2);color:var(--orocl);display:grid;place-items:center;flex:none}
+.row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px dashed #e5d6b6;font-family:Arial,sans-serif;flex-wrap:wrap}
+.row:last-of-type{border:0}
+.row .lb{font-size:.65rem;font-weight:bold;letter-spacing:.1em;text-transform:uppercase;color:#9a7524;min-width:64px}
+.row code{font-family:'Courier New',monospace;font-weight:bold;font-size:.95rem;flex:1}
+.cop{background:var(--vino2);color:var(--orocl);border:0;font-family:Arial,sans-serif;font-weight:bold;font-size:.68rem;padding:7px 13px;border-radius:8px;cursor:pointer}
+.ppbtn{display:block;text-align:center;background:#ffc439;border:1px solid #e0a800;color:#143d6b;font-weight:bold;padding:15px;border-radius:12px;font-size:1rem;margin-top:8px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;margin-top:36px;text-align:center}
+.step{background:#faf5e9;border:1px solid #e2d3b0;border-radius:14px;padding:24px 18px}
+.step .num{width:42px;height:42px;margin:0 auto 12px;border-radius:50%;background:var(--grad);color:#3a0c16;font-weight:bold;font-size:1.2rem;display:grid;place-items:center}
+.step h4{color:var(--vino2);margin-bottom:5px}
+.step p{font-family:Arial,sans-serif;font-size:.85rem;color:#7a5560}
+.wabig{display:flex;align-items:center;justify-content:center;gap:12px;background:#25d366;color:#fff;font-weight:bold;padding:16px 32px;border-radius:14px;margin:32px auto 0;width:fit-content;font-family:Arial,sans-serif;box-shadow:0 10px 24px -8px rgba(37,211,102,.6)}
 
-        .wa-green { background-color: #25D366; }
-        .wa-green:hover { background-color: #1ebe57; }
+/* FAQ */
+.faq{max-width:760px;margin:40px auto 0;text-align:left}
+.q{background:#fff;border:1px solid #e7d9bd;border-radius:12px;margin-bottom:12px;overflow:hidden}
+.q>button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:14px;background:none;border:0;cursor:pointer;padding:18px 20px;font-weight:bold;font-size:1rem;color:var(--vino2);text-align:left}
+.q .mas{width:28px;height:28px;flex:none;border-radius:50%;background:var(--grad);color:#3a0c16;display:grid;place-items:center;font-weight:bold;font-size:1.1rem;font-family:Arial,sans-serif;transition:transform .3s}
+.q.open .mas{transform:rotate(45deg)}
+.a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.a p{padding:0 20px 18px;font-family:Arial,sans-serif;font-size:.9rem;color:#6b4a52}
 
-        .instructor-img {
-            filter: grayscale(100%) contrast(1.1);
-            transition: filter 0.7s ease;
-        }
-        .instructor-img:hover { filter: grayscale(0%) contrast(1); }
+/* FOOTER */
+footer{background:linear-gradient(180deg,#320a13,#22050b);border-top:3px solid var(--oro);text-align:center;padding:56px 16px 30px;color:#e3cfae}
+footer .firma{font-size:clamp(2rem,5vw,2.8rem);font-style:italic;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:bold}
+footer .rol{letter-spacing:.5em;font-size:.8rem;margin:6px 0 14px;color:var(--orocl)}
+footer .tag{font-size:.72rem;letter-spacing:.28em;color:#cfa96a;text-transform:uppercase}
+footer .mini{font-size:.72rem;margin-top:22px;color:#8a6a55;font-family:Arial,sans-serif}
+footer .mini a{color:var(--orocl)}
 
-        .poster-frame {
-            border: 1px solid rgba(197, 165, 90, 0.2);
-            box-shadow: 0 25px 60px -15px rgba(114, 47, 55, 0.3), 0 0 80px rgba(197, 165, 90, 0.05);
-        }
-
-        .btn-pay {
-            position: relative;
-            z-index: 10;
-            pointer-events: auto;
-            cursor: pointer;
-        }
-        .btn-pay:hover { transform: translateY(-1px); }
-        .btn-pay:active { transform: translateY(0); }
-    </style>
+.wafloat{position:fixed;right:18px;bottom:20px;z-index:90;width:56px;height:56px;border-radius:50%;background:#25d366;display:grid;place-items:center;font-size:28px;box-shadow:0 8px 20px rgba(0,0,0,.35)}
+</style>
 </head>
-<body class="bg-[#050505] text-white antialiased overflow-x-hidden">
+<body>
 
-    <div class="grain fixed inset-0 pointer-events-none z-50"></div>
-    <div class="fixed top-20 left-10 w-72 h-72 bg-wine/10 rounded-full blur-[120px] animate-float pointer-events-none"></div>
-    <div class="fixed bottom-20 right-10 w-96 h-96 bg-gold/5 rounded-full blur-[120px] animate-float-reverse pointer-events-none"></div>
+<!-- BARRA SUPERIOR -->
+<div class="top">
+  <b><s>$2,500</s> $1,000 MXN</b>
+  <a class="btn" href="https://www.paypal.com/ncp/payment/U7XR5RCLWKC4E" target="_blank">Pagar ahora</a>
+</div>
 
-    <!-- NAV -->
-    <nav class="fixed top-0 left-0 right-0 z-40 bg-[#050505]/80 backdrop-blur-md border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded-full bg-gradient-to-br from-wine to-gold flex items-center justify-center">
-                    <i data-lucide="wine" class="w-5 h-5 text-white"></i>
-                </div>
-                <span class="font-semibold tracking-tight">José Guerrero</span>
-            </div>
-            <a href="#comprar" class="bg-wine hover:bg-wine/80 text-white text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-300 btn-pay">
-                Comprar Ahora
-            </a>
-        </div>
-    </nav>
-
-    <!-- HERO -->
-    <section class="relative min-h-screen flex items-center justify-center hero-gradient pt-16">
-        <div class="max-w-7xl mx-auto px-6 py-20 text-center">
-            <div class="fade-in-up inline-flex items-center gap-2 bg-wine/20 border border-wine/30 rounded-full px-4 py-1.5 mb-8">
-                <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
-                <span class="text-xs font-medium tracking-wider uppercase text-gold">Promoción Especial</span>
-            </div>
-            <h1 class="fade-in-up fade-in-up-d1 text-4xl sm:text-5xl md:text-7xl font-medium tracking-tight leading-[1.1] mb-6">
-                <span class="text-white">PROMOCIÓN DE</span><br>
-                <span class="animate-shimmer">CURSOS DE VINO</span>
-            </h1>
-            <p class="fade-in-up fade-in-up-d2 text-lg sm:text-xl text-gray-400 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
-                Aprende, aplica y eleva tu pasión por el vino con tres cursos especializados diseñados para transformar tu conocimiento.
-            </p>
-            <div class="fade-in-up fade-in-up-d3 mb-12">
-                <div class="price-badge inline-block rounded-2xl px-8 py-6">
-                    <p class="text-xs uppercase tracking-widest text-gold/80 mb-1">Solo hoy todo por</p>
-                    <p class="text-5xl sm:text-6xl font-semibold tracking-tight text-white">$1,200</p>
-                    <p class="text-sm text-gray-300 mt-1">Pesos MXN</p>
-                </div>
-            </div>
-            <div class="fade-in-up fade-in-up-d3 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#comprar" class="group bg-wine hover:bg-[#8a3842] text-white font-medium px-8 py-4 rounded-full transition-all duration-300 flex items-center gap-2 animate-pulse-glow btn-pay">
-                    Comprar los 3 Cursos
-                    <i data-lucide="arrow-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"></i>
-                </a>
-                <a href="#poster" class="text-gray-400 hover:text-white font-medium px-6 py-4 rounded-full border border-white/10 hover:border-white/20 transition-all duration-300">
-                    Ver Póster
-                </a>
-            </div>
-            <div class="mt-16 flex flex-wrap items-center justify-center gap-8 text-gray-500 text-sm">
-                <div class="flex items-center gap-2"><i data-lucide="video" class="w-4 h-4 text-gold/60"></i><span>Clases grabadas</span></div>
-                <div class="flex items-center gap-2"><i data-lucide="book-open" class="w-4 h-4 text-gold/60"></i><span>Manuales incluidos</span></div>
-                <div class="flex items-center gap-2"><i data-lucide="award" class="w-4 h-4 text-gold/60"></i><span>3 Certificados</span></div>
-            </div>
-        </div>
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-600">
-            <span class="text-xs tracking-widest uppercase">Scroll</span>
-            <i data-lucide="chevron-down" class="w-4 h-4 animate-bounce"></i>
-        </div>
-    </section>
-
-    <!-- POSTER IMAGE -->
-    <section id="poster" class="py-20 px-6">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-10">
-                <p class="text-xs font-medium tracking-widest uppercase text-gold mb-3">Póster Oficial</p>
-                <h2 class="text-3xl font-medium tracking-tight">Invierte en tu conocimiento</h2>
-            </div>
-            <div class="poster-frame rounded-2xl overflow-hidden">
-                <img src="https://z-cdn-media.chatglm.cn/files/7ee33f6d-975b-4c6f-a7cc-0fdc83d925f2.png?auth_key=1877318319-9177b0faca0a4e18b7b436200b4d751e-0-320069d1bb5080f19c4ace05818d8e2f" alt="Póster Promoción de Cursos de Vino - José Guerrero" class="w-full h-auto block">
-            </div>
-            <p class="text-center text-gray-500 text-xs mt-6 tracking-wide">TRANSFORMA TU PASIÓN EN EXPERTISE</p>
-        </div>
-    </section>
-
-    <!-- COURSES -->
-    <section id="cursos" class="relative py-24 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <p class="text-xs font-medium tracking-widest uppercase text-gold mb-4">Lo que incluye</p>
-                <h2 class="text-3xl sm:text-4xl font-medium tracking-tight mb-4">Tres Cursos Especializados</h2>
-                <p class="text-gray-400 font-light max-w-xl mx-auto">Cada curso ha sido diseñado por José Guerrero Garfias para brindarte conocimientos prácticos y aplicables.</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Course 1 -->
-                <div class="glass-card rounded-2xl overflow-hidden transition-all duration-500 group">
-                    <div class="relative h-56 overflow-hidden">
-                        <img src="https://z-cdn-media.chatglm.cn/files/1c3db3f2-534e-4fde-b2e3-89744e273c97.jpg?auth_key=1877316437-4e0d8a24426941348118f1e035c0794a-0-c0285d1eb1dcf9a944a2ae5c4308b38a" alt="Correcciones Enológicas - Descube" class="w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent"></div>
-                        <div class="absolute top-4 left-4 bg-wine/80 backdrop-blur-sm text-white text-xs font-medium px-3 py-1 rounded-full">Curso 1</div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-3">
-                            <i data-lucide="flask-conical" class="w-4 h-4 text-gold"></i>
-                            <h3 class="text-lg font-medium tracking-tight group-hover:text-gold transition-colors duration-300">Correcciones Enológicas</h3>
-                        </div>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-5">Aprende a identificar y corregir las desviaciones y defectos más comunes del vino. Domina las técnicas de descube y corrección para mejorar la calidad.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs bg-white/5 text-gray-400 px-2.5 py-1 rounded-full">Defectos</span>
-                            <span class="text-xs bg-white/5 text-gray-400 px-2.5 py-1 rounded-full">Descube</span>
-                            <span class="text-xs bg-white/5 text-gray-400 px-2.5 py-1 rounded-full">Calidad</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Course 2 -->
-                <div class="glass-card rounded-2xl overflow-hidden transition-all duration-500 group md:-translate-y-4">
-                    <div class="relative h-56 overflow-hidden">
-                        <img src="https://z-cdn-media.chatglm.cn/files/2216e7bc-d2fa-4bbb-8e97-6b269faadb89.jpg?auth_key=1877316636-845b6c7d01694922960286ee1d6c097e-0-d751ff25f7fd70987507af1a77a0504a" alt="Análisis de Vino - Filtrado y Sin Filtrar" class="w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent"></div>
-                        <div class="absolute top-4 left-4 bg-wine/80 backdrop-blur-sm text-white text-xs font-medium px-3 py-1 rounded-full">Curso 2</div>
-                        <div class="absolute top-4 right-4 bg-gold/90 backdrop-blur-sm text-black text-xs font-bold px-3 py-1 rounded-full">Popular</div>
-                        <div class="absolute bottom-4 left-4"><p class="text-[10px] uppercase tracking-widest text-white/50">Vino filtrado vs sin filtrar</p></div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-3">
-                            <i data-lucide="microscope" class="w-4 h-4 text-gold"></i>
-                            <h3 class="text-lg font-medium tracking-tight group-hover:text-gold transition-colors duration-300">Análisis de Vino en Laboratorio</h3>
-                        </div>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-5">Domina las técnicas de análisis químico y sensorial. Aprende a interpretar resultados de laboratorio para tomar decisiones informadas en la vinificación.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs bg-white/5 text-gray-400 px-2.5 py-1 rounded-full">Química</span>
-                            <span class="text-xs bg-white/5 text-gray-400 px-2.5 py-1 rounded-full">Sensorial</span>
-                            <span class="text-xs bg-white/5 text-gray-400 px-2.5 py-1 rounded-full">Filtrado</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Course 3 -->
-                <div class="glass-card rounded-2xl overflow-hidden transition-all duration-500 group">
-                    <div class="relative h-56 overflow-hidden">
-                        <img src="https://z-cdn-media.chatglm.cn/files/40d1fa6c-a6e6-45ad-8338-6af4a031b0e3.jpg?auth_key=1877316437-23eee904f79e47ca87b60166b4a206b2-0-91ba7847ee987626a5ec00f824dc20e2" alt="Microbiología del Vino" class="w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent"></div>
-                        <div class="absolute top-4 left-4 bg-wine/80 backdrop-blur-sm text-white text-xs font-medium px-3 py-1 rounded-full">Curso 3</div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-3">
-                            <i data-lucide="bug" class="w-4 h-4 text-gold"></i>
-                            <h3 class="text-lg font-medium tracking-tight group-hover:text-gold transition-colors duration-300">Microbiología del Vino</h3>
-                        </div>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-5">Conoce los microorganismos que influyen directamente en la vinificación. Levaduras, bacterias lácticas y su papel crucial en el perfil del vino final.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs bg-white/5 text-gray-400 px-2.5 py-1 rounded-full">Levaduras</span>
-                            <span class="text-xs bg-white/5 text-gray-400 px-2.5 py-1 rounded-full">Bacterias</span>
-                            <span class="text-xs bg-white/5 text-gray-400 px-2.5 py-1 rounded-full">Fermentación</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- BENEFITS -->
-    <section class="py-24 px-6 relative">
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-wine/5 to-transparent pointer-events-none"></div>
-        <div class="max-w-5xl mx-auto relative">
-            <div class="text-center mb-16">
-                <p class="text-xs font-medium tracking-widest uppercase text-gold mb-4">¿Qué recibes?</p>
-                <h2 class="text-3xl sm:text-4xl font-medium tracking-tight">Todo lo que necesitas para aprender</h2>
-            </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="text-center p-6">
-                    <div class="w-14 h-14 rounded-2xl bg-wine/20 border border-wine/20 flex items-center justify-center mx-auto mb-4"><i data-lucide="play-circle" class="w-6 h-6 text-gold"></i></div>
-                    <h4 class="font-medium text-sm mb-2">Clases Grabadas</h4>
-                    <p class="text-gray-500 text-xs leading-relaxed">Acceso ilimitado a todas las clases en video.</p>
-                </div>
-                <div class="text-center p-6">
-                    <div class="w-14 h-14 rounded-2xl bg-wine/20 border border-wine/20 flex items-center justify-center mx-auto mb-4"><i data-lucide="book-open" class="w-6 h-6 text-gold"></i></div>
-                    <h4 class="font-medium text-sm mb-2">Manuales Incluidos</h4>
-                    <p class="text-gray-500 text-xs leading-relaxed">Material de apoyo descargable para cada curso.</p>
-                </div>
-                <div class="text-center p-6">
-                    <div class="w-14 h-14 rounded-2xl bg-wine/20 border border-wine/20 flex items-center justify-center mx-auto mb-4"><i data-lucide="award" class="w-6 h-6 text-gold"></i></div>
-                    <h4 class="font-medium text-sm mb-2">3 Certificados</h4>
-                    <p class="text-gray-500 text-xs leading-relaxed">Certificado digital por cada curso completado.</p>
-                </div>
-                <div class="text-center p-6">
-                    <div class="w-14 h-14 rounded-2xl bg-wine/20 border border-wine/20 flex items-center justify-center mx-auto mb-4"><i data-lucide="infinity" class="w-6 h-6 text-gold"></i></div>
-                    <h4 class="font-medium text-sm mb-2">Acceso Permanente</h4>
-                    <p class="text-gray-500 text-xs leading-relaxed">Los cursos son tuyos para siempre.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PAYMENT SECTION -->
-    <section id="comprar" class="py-24 px-6 relative">
-        <div class="max-w-3xl mx-auto">
-            <div class="static-card rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-40 h-40 bg-gold/5 rounded-full blur-[80px] pointer-events-none"></div>
-                <div class="absolute bottom-0 left-0 w-32 h-32 bg-wine/10 rounded-full blur-[60px] pointer-events-none"></div>
-
-                <div class="relative">
-                    <div class="inline-flex items-center gap-2 bg-gold/10 border border-gold/20 rounded-full px-4 py-1.5 mb-6">
-                        <i data-lucide="sparkles" class="w-3 h-3 text-gold"></i>
-                        <span class="text-xs font-medium tracking-wider uppercase text-gold">Oferta Especial</span>
-                    </div>
-
-                    <h2 class="text-3xl sm:text-4xl font-medium tracking-tight mb-3">3 Cursos Completos</h2>
-                    <p class="text-gray-400 font-light mb-8">Correcciones Enológicas · Análisis en Laboratorio · Microbiología del Vino</p>
-
-                    <div class="flex items-center justify-center gap-4 mb-8">
-                        <span class="text-gray-500 line-through text-2xl">$3,600</span>
-                        <span class="text-5xl font-semibold text-white">$1,200</span>
-                        <span class="bg-green-500/20 text-green-400 text-xs font-bold px-3 py-1 rounded-full">-67%</span>
-                    </div>
-                    <p class="text-gray-500 text-sm mb-10">Pesos MXN · Pago único · Sin recurrentes</p>
-
-                    <!-- BOTONES DE PAGO -->
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                        <a href="https://buy.stripe.com/28EeVc0JjgxQ44r4sk4sE01" target="_blank" rel="noopener"
-                           class="btn-pay inline-flex items-center justify-center gap-3 bg-wine hover:bg-[#8a3842] text-white font-medium px-8 py-4 rounded-full transition-all duration-300 w-full sm:w-auto animate-pulse-glow no-underline">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-                            Pagar con Tarjeta
-                            <svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                        </a>
-                        <button type="button" onclick="openDepositModal()"
-                           class="btn-pay inline-flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 text-white font-medium px-8 py-4 rounded-full border border-white/10 hover:border-white/20 transition-all duration-300 w-full sm:w-auto">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg>
-                            Pagar con Depósito
-                        </button>
-                    </div>
-
-                    <div class="flex items-center justify-center gap-6 text-gray-600 text-xs">
-                        <div class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg><span>Pago seguro</span></div>
-                        <div class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>Datos protegidos</span></div>
-                        <div class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span>Acceso inmediato</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- INSTRUCTOR -->
-    <section class="py-24 px-6">
-        <div class="max-w-5xl mx-auto">
-            <div class="static-card rounded-2xl p-8 sm:p-12 flex flex-col md:flex-row items-center gap-8">
-                <div class="w-36 h-44 md:w-44 md:h-56 rounded-2xl overflow-hidden flex-shrink-0 border-2 border-wine/30">
-                    <img src="https://z-cdn-media.chatglm.cn/files/2bfab49e-9b5c-4389-92fa-f5ec899583af.jpeg?auth_key=1877316437-06d6d42d215d47a78374c01936f18d42-0-3d56b03439e706f7444b6787bb8a0eea" alt="José Guerrero Garfias" class="w-full h-full object-cover instructor-img">
-                </div>
-                <div>
-                    <p class="text-xs font-medium tracking-widest uppercase text-gold mb-3">Tu Instructor</p>
-                    <h3 class="text-2xl font-medium tracking-tight mb-3">José Guerrero Garfias</h3>
-                    <p class="text-gray-400 font-light leading-relaxed text-sm mb-5">Experto en enología con amplia experiencia en la producción y análisis de vinos mexicanos. Apasionado por compartir conocimientos prácticos que permitan a los estudiantes elevar el nivel de su producción vinícola de manera profesional y accesible.</p>
-                    <div class="flex items-center gap-2">
-                        <i data-lucide="wine" class="w-4 h-4 text-gold/60"></i>
-                        <span class="text-xs text-gray-500">Especialista en vinificación y análisis enológico</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="py-24 px-6 relative">
-        <div class="max-w-3xl mx-auto">
-            <div class="text-center mb-12">
-                <p class="text-xs font-medium tracking-widest uppercase text-gold mb-4">Resuelve tus dudas</p>
-                <h2 class="text-3xl font-medium tracking-tight">Preguntas Frecuentes</h2>
-            </div>
-            <div class="space-y-3">
-                <div class="static-card rounded-xl overflow-hidden">
-                    <button type="button" onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left cursor-pointer">
-                        <span class="font-medium text-sm">¿Cómo accedo a los cursos después de pagar?</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500 transition-transform duration-300 faq-icon flex-shrink-0 ml-4"></i>
-                    </button>
-                    <div class="faq-answer hidden px-5 pb-5">
-                        <p class="text-gray-400 text-sm leading-relaxed">Si pagas con tarjeta, tu acceso se activa automáticamente. Si pagas con depósito o transferencia, envía tu comprobante por WhatsApp al <strong class="text-white">492 134 4124</strong> y recibirás tus accesos en máximo 24 horas.</p>
-                    </div>
-                </div>
-                <div class="static-card rounded-xl overflow-hidden">
-                    <button type="button" onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left cursor-pointer">
-                        <span class="font-medium text-sm">¿Por cuánto tiempo tengo acceso?</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500 transition-transform duration-300 faq-icon flex-shrink-0 ml-4"></i>
-                    </button>
-                    <div class="faq-answer hidden px-5 pb-5">
-                        <p class="text-gray-400 text-sm leading-relaxed">El acceso es permanente. Una vez inscrito, los cursos son tuyos para siempre y puedes ver las clases las veces que quieras.</p>
-                    </div>
-                </div>
-                <div class="static-card rounded-xl overflow-hidden">
-                    <button type="button" onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left cursor-pointer">
-                        <span class="font-medium text-sm">¿Los certificados tienen validez oficial?</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500 transition-transform duration-300 faq-icon flex-shrink-0 ml-4"></i>
-                    </button>
-                    <div class="faq-answer hidden px-5 pb-5">
-                        <p class="text-gray-400 text-sm leading-relaxed">Recibirás un certificado digital por cada curso completado que avala tus conocimientos en el área de la enología.</p>
-                    </div>
-                </div>
-                <div class="static-card rounded-xl overflow-hidden">
-                    <button type="button" onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left cursor-pointer">
-                        <span class="font-medium text-sm">¿Necesito experiencia previa?</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500 transition-transform duration-300 faq-icon flex-shrink-0 ml-4"></i>
-                    </button>
-                    <div class="faq-answer hidden px-5 pb-5">
-                        <p class="text-gray-400 text-sm leading-relaxed">Los cursos están diseñados para principiantes y personas con conocimientos básicos. Cada tema se explica de forma clara y práctica.</p>
-                    </div>
-                </div>
-                <div class="static-card rounded-xl overflow-hidden">
-                    <button type="button" onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left cursor-pointer">
-                        <span class="font-medium text-sm">¿Puedo pagar desde otro país?</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500 transition-transform duration-300 faq-icon flex-shrink-0 ml-4"></i>
-                    </button>
-                    <div class="faq-answer hidden px-5 pb-5">
-                        <p class="text-gray-400 text-sm leading-relaxed">Sí, con tarjeta puedes pagar desde cualquier país a través de Stripe. Para depósito, la cuenta es de México (BBVA), recomendamos tarjeta si estás fuera del país.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FINAL CTA -->
-    <section class="py-24 px-6">
-        <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-3xl sm:text-4xl font-medium tracking-tight mb-4">No dejes pasar esta oportunidad</h2>
-            <p class="text-gray-400 font-light mb-10 max-w-lg mx-auto">Invierte en tu formación enológica hoy. 3 cursos, manuales, certificados y acceso permanente por solo $1,200 MXN.</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://buy.stripe.com/28EeVc0JjgxQ44r4sk4sE01" target="_blank" rel="noopener"
-                   class="btn-pay inline-flex items-center justify-center gap-2 bg-wine hover:bg-[#8a3842] text-white font-medium px-10 py-4 rounded-full transition-all duration-300 animate-pulse-glow no-underline">
-                    Comprar con Tarjeta — $1,200 MXN
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </a>
-                <button type="button" onclick="openDepositModal()"
-                   class="btn-pay inline-flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-white font-medium px-8 py-4 rounded-full border border-white/10 hover:border-white/20 transition-all duration-300">
-                    Depósito / Transferencia
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="border-t border-white/5 py-12 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div class="flex items-center gap-3">
-                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-wine to-gold flex items-center justify-center">
-                    <i data-lucide="wine" class="w-4 h-4 text-white"></i>
-                </div>
-                <span class="text-sm text-gray-500">José Guerrero Garfias — Cursos de Vino</span>
-            </div>
-            <div class="flex items-center gap-4">
-                <a href="https://wa.me/524921344124" target="_blank" rel="noopener" class="flex items-center gap-2 text-gray-500 hover:text-green-400 transition-colors text-sm">
-                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                    <span>492 134 4124</span>
-                </a>
-                <span class="text-xs text-gray-600">© 2025 Todos los derechos reservados.</span>
-            </div>
-        </div>
-    </footer>
-
-    <!-- DEPOSIT MODAL -->
-    <div id="depositModal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
-        <div class="modal-content static-card rounded-2xl p-8 max-w-md w-full relative max-h-[90vh] overflow-y-auto">
-            <button type="button" onclick="closeDepositModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors z-10 cursor-pointer">
-                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
-            </button>
-
-            <div class="w-14 h-14 rounded-2xl bg-wine/20 border border-wine/20 flex items-center justify-center mx-auto mb-6">
-                <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg>
-            </div>
-
-            <h3 class="text-xl font-medium tracking-tight text-center mb-2">Pago por Depósito o Transferencia</h3>
-            <p class="text-gray-500 text-sm text-center mb-8">Realiza tu pago y envía el comprobante por WhatsApp.</p>
-
-            <div class="space-y-3 mb-6">
-                <div class="bg-white/5 rounded-xl p-4">
-                    <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Banco</p>
-                    <p class="font-medium text-sm">BBVA</p>
-                </div>
-                <div class="bg-white/5 rounded-xl p-4">
-                    <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Titular</p>
-                    <p class="font-medium text-sm">José Guerrero Garfias</p>
-                </div>
-                <div class="bg-white/5 rounded-xl p-4">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Número de Cuenta</p>
-                            <p class="font-medium text-sm tracking-wide">4152 3145 9813 3463</p>
-                        </div>
-                        <button type="button" onclick="copyText('4152314598133463', this)" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors flex-shrink-0 cursor-pointer" title="Copiar">
-                            <svg class="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                        </button>
-                    </div>
-                </div>
-                <div class="bg-white/5 rounded-xl p-4">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">CLABE Interbancaria</p>
-                            <p class="font-medium text-sm tracking-wide">012 074 01558665643 7</p>
-                        </div>
-                        <button type="button" onclick="copyText('012074015586656437', this)" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors flex-shrink-0 cursor-pointer" title="Copiar">
-                            <svg class="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                        </button>
-                    </div>
-                </div>
-                <div class="bg-white/5 rounded-xl p-4">
-                    <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Monto a Pagar</p>
-                    <p class="font-medium text-lg text-gold">$1,200.00 MXN</p>
-                </div>
-            </div>
-
-            <!-- WhatsApp Info -->
-            <div class="bg-green-500/10 border border-green-500/30 rounded-xl p-5 mb-4">
-                <div class="flex items-start gap-3">
-                    <div class="w-10 h-10 rounded-full wa-green flex items-center justify-center flex-shrink-0">
-                        <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                    </div>
-                    <div>
-                        <p class="text-sm font-medium text-green-400 mb-1">Envía tu comprobante por WhatsApp</p>
-                        <p class="text-xs text-green-400/70 leading-relaxed">Una vez realizado tu depósito o transferencia, envía una captura del comprobante al <strong class="text-green-300">492 134 4124</strong> con tu nombre completo y correo electrónico para activar tus accesos.</p>
-                    </div>
-                </div>
-            </div>
-
-            <a href="https://wa.me/524921344124?text=Hola%2C%20realic%C3%A9%20mi%20dep%C3%B3sito%20por%20los%203%20cursos%20de%20vino%20(%241%2C200%20MXN).%20Anexo%20mi%20comprobante%20y%20mis%20datos%3A" target="_blank" rel="noopener"
-               class="block w-full wa-green text-white font-medium py-3.5 rounded-full transition-all duration-300 text-center mb-4 hover:shadow-lg hover:shadow-green-500/20 no-underline">
-                <span class="inline-flex items-center justify-center gap-3">
-                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                    Enviar Comprobante por WhatsApp
-                </span>
-            </a>
-
-            <button type="button" onclick="closeDepositModal()" class="block w-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white font-medium py-3 rounded-full border border-white/10 hover:border-white/20 transition-all duration-300 text-sm cursor-pointer">
-                Cerrar
-            </button>
-        </div>
+<!-- HERO CON IMAGEN -->
+<header class="hero">
+  <div class="c hgrid">
+    <div>
+      <div class="hk">José Guerrero · Consultor en Enología</div>
+      <h1>OFERTA EXCLUSIVA<br>CURSOS + MANUALES</h1>
+      <div class="hrule"></div>
+      <p class="lead">Conocimiento y formación profesional. Potencia tu carrera en la enología con cursos técnicos y científicos de <b>alto nivel</b> para profesionales y amantes del vino.</p>
+      <a class="btn" href="#precio">Ver la oferta ↓</a>
     </div>
-
-    <!-- TOAST -->
-    <div id="copyToast" class="copy-toast fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] bg-wine text-white text-sm font-medium px-5 py-2.5 rounded-full flex items-center gap-2 shadow-2xl">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
-        <span>¡Copiado al portapapeles!</span>
+    <div class="himg">
+      <img src="https://i.postimg.cc/cLRh2Y7m/Gemini-Generated-Image-pgunuypgunuypgun.jpg" alt="Cursos y manuales especializados en enología — José Guerrero Consultor">
+      <div class="hbadge">🍷 Experiencia · Ciencia · Pasión</div>
     </div>
+  </div>
+</header>
 
-    <!-- FLOATING WHATSAPP -->
-    <a href="https://wa.me/524921344124?text=Hola%2C%20me%20interesa%20la%20promoci%C3%B3n%20de%20los%203%20cursos%20de%20vino%20por%20%241%2C200%20MXN" target="_blank" rel="noopener"
-       class="fixed bottom-6 right-6 z-40 w-14 h-14 wa-green rounded-full flex items-center justify-center shadow-lg shadow-green-500/30 hover:shadow-green-500/50 hover:scale-110 transition-all duration-300"
-       title="Chatear por WhatsApp">
-        <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    </a>
+<!-- TEMPORIZADOR -->
+<div class="reloj">
+  <h3>⏰ Válido solo hasta las <em>10:30 PM de hoy</em></h3>
+  <small>LA OFERTA TERMINA EN:</small>
+  <div class="timer">
+    <div class="tb"><div class="tn" id="h">00</div><div class="tc">HORAS</div></div>
+    <div class="tb"><div class="tn" id="m">00</div><div class="tc">MINUTOS</div></div>
+    <div class="tb"><div class="tn" id="s">00</div><div class="tc">SEGUNDOS</div></div>
+  </div>
+</div>
 
-    <script>
-        lucide.createIcons();
+<!-- CURSOS -->
+<section class="sec" style="text-align:center">
+  <div class="c">
+    <h2>3 Cursos Técnicos y Científicos</h2>
+    <p class="sub">Domina los procesos de vinificación con contenido de alto nivel impartido por un consultor experto.</p>
+    <div class="grid3">
+      <div>
+        <div class="wcard oscuro"><div class="wrow">🍇 <span class="play"></span> 🍷</div></div>
+        <div class="wtit">Elaboración de<br>Vino Tinto</div>
+        <p class="wdesc">Maceración, fermentación alcohólica y maloláctica, extracción y técnicas.</p>
+      </div>
+      <div>
+        <div class="wcard dorado"><div class="wrow">🥂 <span class="play"></span> 🍇</div></div>
+        <div class="wtit">Elaboración de Vino<br>Blanco y Rosado</div>
+        <p class="wdesc">Criomaceración, prensado, fermentación en frío y estilos.</p>
+      </div>
+      <div>
+        <div class="wcard dorado"><div class="wrow">🍾 <span class="play"></span> ✨</div></div>
+        <div class="wtit">Elaboración de<br>Vino Espumoso</div>
+        <p class="wdesc">Método tradicional: tiraje, segunda fermentación, removido y degüelle.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        function openDepositModal() {
-            document.getElementById('depositModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeDepositModal() {
-            document.getElementById('depositModal').classList.remove('active');
-            document.body.style.overflow = '';
-        }
-        document.getElementById('depositModal').addEventListener('click', function(e) {
-            if (e.target === this) closeDepositModal();
-        });
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeDepositModal();
-        });
+<!-- MANUALES -->
+<section class="sec ebooks" style="text-align:center">
+  <div class="c">
+    <h2>Incluye el Pack de 7 Manuales<br>Especializados</h2>
+    <p class="sub">Biblioteca técnica escrita por José Guerrero, Consultor. Descarga en PDF al instante.</p>
+    <div class="books">
+      <div class="book b1"><h4>Análisis Sensorial del Vino</h4><span>José Guerrero</span></div>
+      <div class="book b2"><h4>Defectos, Enfermedades y Correcciones del Vino</h4><span>José Guerrero</span></div>
+      <div class="book b3"><h4>Bioquímica del Vino</h4><span>José Guerrero</span></div>
+      <div class="book b4"><h4>Microbiología del Vino</h4><span>José Guerrero</span></div>
+      <div class="book b5"><h4>Microbiología y Bioquímica de los Vinos Espumosos</h4><span>José Guerrero</span></div>
+      <div class="book b6"><h4>Tecnología e Ingeniería de la Vinificación</h4><span>José Guerrero</span></div>
+      <div class="book b7"><h4>Terroir y Fisiología de la Vid</h4><span>José Guerrero</span></div>
+    </div>
+  </div>
+</section>
 
-        function copyText(text, btn) {
-            navigator.clipboard.writeText(text).then(function() {
-                var toast = document.getElementById('copyToast');
-                toast.classList.add('show');
-                setTimeout(function() { toast.classList.remove('show'); }, 2000);
-                btn.style.background = 'rgba(34,197,94,0.2)';
-                setTimeout(function() { btn.style.background = ''; }, 1000);
-            }).catch(function() {
-                var ta = document.createElement('textarea');
-                ta.value = text;
-                ta.style.position = 'fixed';
-                ta.style.left = '-9999px';
-                document.body.appendChild(ta);
-                ta.select();
-                document.execCommand('copy');
-                document.body.removeChild(ta);
-                var toast = document.getElementById('copyToast');
-                toast.classList.add('show');
-                setTimeout(function() { toast.classList.remove('show'); }, 2000);
-            });
-        }
+<!-- BENEFICIOS -->
+<section class="sec" style="text-align:center">
+  <div class="c">
+    <h2>Beneficios de tu Acceso</h2>
+    <p class="sub">Todo el conocimiento, sin límites y diseñado para tu crecimiento profesional.</p>
+    <div class="bens">
+      <div class="ben"><i>📄</i><h3>Formato Digital PDF</h3><p>Acceso inmediato a todo el material al confirmar tu pago.</p></div>
+      <div class="ben"><i>💻</i><h3>Todos tus Dispositivos</h3><p>Lee desde tu celular, computadora o tablet donde estés.</p></div>
+      <div class="ben"><i>♾️</i><h3>Acceso para Siempre</h3><p>Aprende a tu ritmo, cuando y donde quieras. Es tuyo de por vida.</p></div>
+      <div class="ben"><i>🎓</i><h3>Alto Nivel</h3><p>Contenido técnico y científico para profesionales y amantes del vino.</p></div>
+      <div class="ben"><i>🍇</i><h3>Impartido por un Experto</h3><p>Experiencia · Ciencia · Pasión, de la mano de un consultor en enología.</p></div>
+      <div class="ben"><i>💬</i><h3>Soporte Personalizado</h3><p>Atención directa por WhatsApp para tu compra y cualquier duda.</p></div>
+    </div>
+  </div>
+</section>
 
-        function toggleFaq(button) {
-            var item = button.parentElement;
-            var answer = item.querySelector('.faq-answer');
-            var icon = button.querySelector('.faq-icon');
-            var isOpen = !answer.classList.contains('hidden');
-            document.querySelectorAll('.faq-answer').forEach(function(a) { a.classList.add('hidden'); });
-            document.querySelectorAll('.faq-icon').forEach(function(i) { i.style.transform = 'rotate(0deg)'; });
-            if (!isOpen) {
-                answer.classList.remove('hidden');
-                icon.style.transform = 'rotate(180deg)';
-            }
-        }
+<!-- PRECIO -->
+<section class="sec precio" id="precio" style="text-align:center">
+  <div class="c">
+    <h2>Todo el Pack, Un Solo Pago</h2>
+    <p class="sub">3 cursos especializados + 7 manuales en PDF. Sin mensualidades ni costos ocultos.</p>
+    <div class="pgrid">
+      <div class="incbox" style="text-align:left">
+        <h3>¿Qué incluye tu acceso?</h3>
+        <div class="inc"><div class="ck">✓</div><div><b>Curso: Elaboración de Vino Tinto</b><span>Del mosto al embotellado, paso a paso.</span></div></div>
+        <div class="inc"><div class="ck">✓</div><div><b>Curso: Vino Blanco y Rosado</b><span>Técnicas de fermentación en frío y estilos.</span></div></div>
+        <div class="inc"><div class="ck">✓</div><div><b>Curso: Vino Espumoso</b><span>Método tradicional completo.</span></div></div>
+        <div class="inc"><div class="ck">✓</div><div><b>Pack de 7 manuales especializados (PDF)</b><span>Sensorial, bioquímica, microbiología, terroir y más.</span></div></div>
+        <div class="inc"><div class="ck">✓</div><div><b>Acceso de por vida</b><span>Aprende a tu ritmo, para siempre.</span></div></div>
+      </div>
+      <div class="pcard">
+        <div class="rib">🔥 OFERTA EXCLUSIVA WEB</div>
+        <div class="old">$2,500 MXN</div>
+        <div class="new">$1,000</div>
+        <div class="mxn">MXN · PAGO ÚNICO</div>
+        <a class="btn" href="https://www.paypal.com/ncp/payment/U7XR5RCLWKC4E" target="_blank">💳 Pagar ahora con PayPal</a>
+        <a class="btn2" href="#pago">Ver otras formas de pago</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-        var obs = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.glass-card').forEach(function(card) {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            obs.observe(card);
-        });
-    </script>
+<!-- PAGO -->
+<section class="sec" id="pago" style="text-align:center">
+  <div class="c">
+    <h2>Formas de Pago</h2>
+    <p class="sub">Elige la opción que prefieras. Al finalizar, envía tu comprobante por WhatsApp para recibir el material.</p>
+    <div class="pays">
+      <div class="pay">
+        <h3><span class="n">1</span> Pagar con PayPal</h3>
+        <p class="sub" style="text-align:left;margin:0 0 14px;font-size:.87rem">Pago seguro con tarjeta, saldo PayPal o débito. Ideal también para pagos desde el extranjero.</p>
+        <a class="ppbtn" href="https://www.paypal.com/ncp/payment/U7XR5RCLWKC4E" target="_blank">PayPal · Pagar $1,000 MXN →</a>
+      </div>
+      <div class="pay">
+        <h3><span class="n">2</span> Depósito / Transferencia BBVA</h3>
+        <div class="row"><span class="lb">Tarjeta</span><code>4152 3145 9813 3463</code><button class="cop" data-c="4152314598133463">Copiar</button></div>
+        <div class="row"><span class="lb">CLABE</span><code>012 074 01558665643 7</code><button class="cop" data-c="012074015586656437">Copiar</button></div>
+        <div class="row"><span class="lb">Banco</span><code>BBVA</code></div>
+        <div class="row"><span class="lb">Titular</span><code>Jose Guerrero Garfias</code></div>
+        <div class="row"><span class="lb">Monto</span><code style="color:#5c1627">$1,000 MXN</code></div>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h4>Realiza tu pago</h4><p>Con PayPal o con depósito/transferencia BBVA a los datos indicados.</p></div>
+      <div class="step"><div class="num">2</div><h4>Envía tu comprobante</h4><p>Manda comprobante + email + nombre completo al WhatsApp <b>492 134 4124</b>.</p></div>
+      <div class="step"><div class="num">3</div><h4>Recibe todo el material</h4><p>Te enviamos los 3 cursos y los 7 manuales en PDF de inmediato.</p></div>
+    </div>
+    <a class="wabig" href="https://wa.me/524921344124?text=Hola,%20ya%20realic%C3%A9%20mi%20pago%20de%20la%20Oferta%20Exclusiva%20de%20Cursos%20y%20Manuales.%20Adjunto%20comprobante,%20nombre%20completo%20y%20email." target="_blank">📲 Enviar comprobante por WhatsApp</a>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec ebooks" style="text-align:center">
+  <div class="c">
+    <h2>Preguntas Frecuentes</h2>
+    <div class="faq">
+      <div class="q"><button>¿Qué incluye exactamente la oferta?<span class="mas">+</span></button><div class="a"><p>Incluye los <b>3 cursos</b> (Elaboración de Vino Tinto, Blanco y Rosado, y Vino Espumoso) más el <b>pack de 7 manuales especializados en PDF</b>: Análisis Sensorial, Defectos y Correcciones, Bioquímica, Microbiología, Vinos Espumosos, Tecnología e Ingeniería de la Vinificación, y Terroir y Fisiología de la Vid. Todo por <b>$1,000 MXN</b>.</p></div></div>
+      <div class="q"><button>¿Cómo y cuándo recibo el material?<span class="mas">+</span></button><div class="a"><p>Tras tu pago, envía <b>comprobante, email y nombre completo</b> al WhatsApp <b>492 134 4124</b>. Al confirmar tu pago te enviamos todo el material de inmediato, normalmente el mismo día.</p></div></div>
+      <div class="q"><button>¿Qué formas de pago aceptan?<span class="mas">+</span></button><div class="a"><p><b>PayPal</b> (tarjeta o saldo, también internacional) y <b>depósito/transferencia BBVA</b>: tarjeta 4152 3145 9813 3463 o CLABE 012 074 01558665643 7, a nombre de Jose Guerrero Garfias.</p></div></div>
+      <div class="q"><button>¿El acceso es para siempre?<span class="mas">+</span></button><div class="a"><p>Sí. El material digital es tuyo de por vida, sin suscripciones ni renovaciones. Consulta los contenidos cuantas veces quieras.</p></div></div>
+      <div class="q"><button>¿Puedo verlo desde mi celular?<span class="mas">+</span></button><div class="a"><p>Claro. Todo está en formato <b>PDF</b>, compatible con celular, computadora, tablet y cualquier dispositivo con lector de documentos.</p></div></div>
+      <div class="q"><button>¿Los cursos son en vivo o grabados?<span class="mas">+</span></button><div class="a"><p>Son <b>grabados</b>: recibes el acceso de inmediato y puedes verlos las veces que necesites, sin horarios fijos.</p></div></div>
+      <div class="q"><button>¿Puedo pagar desde otro país?<span class="mas">+</span></button><div class="a"><p>Sí. Con <b>PayPal</b> puedes pagar desde cualquier país; la plataforma convierte el monto a tu moneda local automáticamente.</p></div></div>
+      <div class="q"><button>Ya pagué, ¿qué sigue?<span class="mas">+</span></button><div class="a"><p>Envía tu <b>comprobante, email y nombre completo</b> al WhatsApp <b>492 134 4124</b>. Al verificar tu pago recibirás todo el material de inmediato.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="firma">José Guerrero</div>
+  <div class="rol">CONSULTOR</div>
+  <div class="tag">Experiencia · Ciencia · Pasión</div>
+  <div class="mini">© <span id="yy"></span> José Guerrero Consultor · WhatsApp: <a href="https://wa.me/524921344124" target="_blank">492 134 4124</a></div>
+</footer>
+
+<a class="wafloat" href="https://wa.me/524921344124" target="_blank" title="WhatsApp">💬</a>
+
+<script>
+/* Temporizador hasta las 10:30 PM de hoy */
+(function(){
+  var ahora=new Date(), t=new Date(ahora);
+  t.setHours(22,30,0,0);
+  if(ahora>=t) t.setDate(t.getDate()+1);
+  function p(n){return (n<10?'0':'')+n}
+  function tick(){
+    var d=t-Date.now(); if(d<0)d=0;
+    document.getElementById('h').textContent=p(Math.floor(d/3600000));
+    document.getElementById('m').textContent=p(Math.floor(d%3600000/60000));
+    document.getElementById('s').textContent=p(Math.floor(d%60000/1000));
+  }
+  tick(); setInterval(tick,1000);
+})();
+
+/* Copiar datos bancarios */
+document.querySelectorAll('.cop').forEach(function(b){
+  b.addEventListener('click',function(){
+    var t=b.getAttribute('data-c');
+    function ok(){b.textContent='✓ Copiado';setTimeout(function(){b.textContent='Copiar'},1800)}
+    if(navigator.clipboard){navigator.clipboard.writeText(t).then(ok)}
+    else{var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');document.body.removeChild(a);ok()}
+  });
+});
+
+/* FAQ acordeón */
+document.querySelectorAll('.q>button').forEach(function(q){
+  q.addEventListener('click',function(){
+    var item=q.parentElement, abierto=item.classList.contains('open');
+    document.querySelectorAll('.q.open').forEach(function(o){o.classList.remove('open');o.querySelector('.a').style.maxHeight=null});
+    if(!abierto){item.classList.add('open');var a=item.querySelector('.a');a.style.maxHeight=a.scrollHeight+'px'}
+  });
+});
+
+document.getElementById('yy').textContent=new Date().getFullYear();
+</script>
 </body>
 </html>
